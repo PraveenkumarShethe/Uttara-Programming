@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping package="com.wakaleo.articles.caching.businessobjects">
+
+    <class name="Employee" table="EMPLOYEE" dynamic-update="true">
+		<meta attribute="implement-equals">true</meta>    
+		<cache usage="read-write"/>
+		
+        <id name="id" type="long" unsaved-value="null" >
+            <column name="emp_id" not-null="true"/>
+            <generator class="increment"/>
+        </id>
+
+	   <property column="emp_surname" name="surname" type="string"/>
+	   <property column="emp_firstname" name="firstname" type="string"/>
+	   
+	   <many-to-one name="country"
+ 			        column="cn_id"
+ 			        class="com.wakaleo.articles.caching.businessobjects.Country"  
+			        not-null="true" />
+			    
+		<!-- Lazy-loading is disactivated to demonstrate caching behavior -->    
+	    <set name="languages" table="EMPLOYEE_SPEAKS_LANGUAGE" lazy="false">
+ 		    <cache usage="read-write"/>
+    	    <key column="emp_id"/>
+    	    	<many-to-many column="lan_id" class="Language"/>
+	    </set>
+    					        
+    </class>
+
+</hibernate-mapping>

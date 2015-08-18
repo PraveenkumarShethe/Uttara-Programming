@@ -1,0 +1,187 @@
+/*
+ Refer this if u guys face in issues while creating Foriegn key
+ http://dev.mysql.com/doc/refman/5.1/en/innodb-foreign-key-constraints.html
+ Max table length is 64 charactars only
+ 
+ Manjunath M 
+ 10-04-2012
+
+*/
+SET storage_engine=InnoDB;
+drop database if exists exampledb;
+create database exampledb;
+grant all on *.* to jboss@localhost identified by 'jboss';
+grant all on *.* to jboss@"%" identified by 'jboss';
+commit;
+use exampledb;
+
+
+CREATE TABLE `users` (
+  `USER_ID` INT(10) UNSIGNED NOT NULL,
+  `USERNAME` VARCHAR(45) NOT NULL,
+  `PASSWORD` VARCHAR(45) NOT NULL,
+  `ENABLED` tinyint(1) NOT NULL,
+  PRIMARY KEY (`USER_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `user_roles` (
+  `USER_ROLE_ID` INT(10) UNSIGNED NOT NULL,
+  `USER_ID` INT(10) UNSIGNED NOT NULL,
+  `AUTHORITY` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`USER_ROLE_ID`),
+  KEY `FK_user_roles` (`USER_ID`),
+  CONSTRAINT `FK_user_roles` FOREIGN KEY (`USER_ID`) REFERENCES `users` (`USER_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+INSERT INTO users (USER_ID, USERNAME,PASSWORD, ENABLED)
+VALUES (100, 'manju', 'manju', TRUE);
+ 
+INSERT INTO user_roles (USER_ROLE_ID, USER_ID,AUTHORITY)
+VALUES (1, 100, 'ROLE_USER');
+
+-- This is for One Table Per Class Hierarchy 
+
+CREATE TABLE `person` (
+`person_id` BIGINT(10) NOT NULL AUTO_INCREMENT, 
+`firstname` VARCHAR(50) NULL DEFAULT NULL, 
+`lastname` VARCHAR(50) NULL DEFAULT NULL,
+`joining_date` DATE NULL DEFAULT NULL, 
+`department_name` VARCHAR(50) NULL DEFAULT NULL,
+`discriminator` VARCHAR(20) NOT NULL,
+PRIMARY KEY (`person_id`));
+
+
+--  Create Database Table to persist Subclass
+
+
+
+
+
+
+CREATE TABLE `person1` (`person_id` BIGINT(20) NOT NULL AUTO_INCREMENT,    
+`firstname` VARCHAR(50) NOT NULL DEFAULT '0',   
+`lastname` VARCHAR(50) NOT NULL DEFAULT '0',   
+PRIMARY KEY (`person_id`));
+
+CREATE TABLE `employee1` ( 
+`person_id` BIGINT(10) NOT NULL,  
+`joining_date` DATE NULL DEFAULT NULL,
+`department_name` VARCHAR(50) NULL DEFAULT NULL,
+PRIMARY KEY (`person_id`), 
+CONSTRAINT `FK_PERSON` FOREIGN KEY (`person_id`) REFERENCES `person1` (`person_id`));
+
+CREATE TABLE `owner1` ( 
+`person_id` BIGINT(20) NOT NULL DEFAULT '0',  
+`stocks` BIGINT(11) NULL DEFAULT NULL,
+`partnership_stake` BIGINT(11) NULL DEFAULT NULL,
+PRIMARY KEY (`person_id`),  
+CONSTRAINT `FK_PERSON2` FOREIGN KEY (`person_id`) REFERENCES `person1` (`person_id`)) ;
+
+-- Create Database Table to persist Concrete classes
+
+CREATE TABLE `person2` (
+`person_id` BIGINT(20) NOT NULL AUTO_INCREMENT, 
+`firstname` VARCHAR(50) NOT NULL DEFAULT '0', 
+`lastname` VARCHAR(50) NOT NULL DEFAULT '0', 
+PRIMARY KEY (`person_id`));
+
+CREATE TABLE `employee2` ( 
+`person_id` BIGINT(10) NOT NULL AUTO_INCREMENT,  
+`firstname` VARCHAR(50) NOT NULL, 
+`lastname` VARCHAR(50) NOT NULL,  
+`joining_date` DATE NULL DEFAULT NULL, 
+`department_name` VARCHAR(50) NULL DEFAULT NULL, 
+PRIMARY KEY (`person_id`));
+
+CREATE TABLE `owner2` (
+`person_id` BIGINT(20) NOT NULL AUTO_INCREMENT,
+`firstname` VARCHAR(50) NOT NULL DEFAULT '0',
+`lastname` VARCHAR(50) NOT NULL DEFAULT '0', 
+`stocks` BIGINT(11) NULL DEFAULT NULL,
+`partnership_stake` BIGINT(11) NULL DEFAULT NULL,  
+PRIMARY KEY (`person_id`));
+
+
+-- Tables for one to one mapping
+
+CREATE TABLE `EMPLOYEE121`(
+ `employee_id` BIGINT(10) NOT NULL AUTO_INCREMENT,  
+ `firstname` VARCHAR(50) NULL DEFAULT NULL,  
+ `lastname` VARCHAR(50) NULL DEFAULT NULL,   
+ `birth_date` DATE NOT NULL,  
+ `cell_phone` VARCHAR(15) NOT NULL,  
+ PRIMARY KEY (`employee_id`)
+);
+
+
+CREATE TABLE `EMPLOYEEDETAIL121`(
+`employee_id` BIGINT(20) NOT NULL AUTO_INCREMENT,
+`street` VARCHAR(50) NULL DEFAULT NULL,   
+`city` VARCHAR(50) NULL DEFAULT NULL,   
+`state` VARCHAR(50) NULL DEFAULT NULL,  
+`country` VARCHAR(50) NULL DEFAULT NULL, 
+PRIMARY KEY (`employee_id`),
+CONSTRAINT `FMKEMPL` FOREIGN KEY (`employee_id`) REFERENCES `EMPLOYEE121`(`employee_id`)
+);
+
+-- ONE 2 MANY Example tables  
+-- 1 employee can have 1 department but 1 dep can have n number of employee
+-- from employee to department many-to-one , from department to employee one to many
+
+CREATE TABLE `department12M` (
+`department_id` BIGINT(20) NOT NULL AUTO_INCREMENT,   
+`dept_name` VARCHAR(50) NOT NULL DEFAULT '0',
+PRIMARY KEY (`department_id`));
+
+CREATE TABLE `employee12M` ( 
+`employee_id` BIGINT(10) NOT NULL AUTO_INCREMENT,   
+`firstname` VARCHAR(50) NULL DEFAULT NULL,   
+`lastname` VARCHAR(50) NULL DEFAULT NULL,  
+`birth_date` DATE NULL DEFAULT NULL,  
+`cell_phone` VARCHAR(15) NULL DEFAULT NULL,  
+`department_id` BIGINT(20) NULL DEFAULT NULL,
+`idx` INT(11) NOT NULL DEFAULT '0',
+PRIMARY KEY (`employee_id`),
+INDEX `FK_DEPT` (`department_id`),    
+CONSTRAINT `FK_DEPT` FOREIGN KEY (`department_id`) REFERENCES `department12M` (`department_id`));
+
+
+-- MANY TO MANY EXAMPLE 
+
+CREATE TABLE `employeeM2M`(
+`employee_id` BIGINT(20) NOT NULL AUTO_INCREMENT,
+`firstname` VARCHAR(50) NULL DEFAULT NULL,
+`lastname` VARCHAR(50) NULL DEFAULT NULL,
+PRIMARY KEY (`employee_id`));
+
+
+CREATE TABLE `meetingM2M`(
+`meeting_id` BIGINT(20) NOT NULL AUTO_INCREMENT,
+`subject`  VARCHAR(100) NOT NULL,
+`meeting_date` DATE NOT NULL,
+PRIMARY KEY(`meeting_id`)
+);
+
+
+CREATE TABLE `employee_meeting`(
+`employee_id` BIGINT(20) NOT NULL,
+`meeting_id` BIGINT(20) NOT NULL,
+PRIMARY KEY(`employee_id`,`meeting_id`),
+INDEX `FK_MEETING` (`meeting_id`),
+CONSTRAINT `FK_EMPLOYEE` FOREIGN KEY (`employee_id`) REFERENCES `employeeM2M` (`employee_id`),
+CONSTRAINT `FK_MEETING` FOREIGN KEY (`meeting_id`) REFERENCES `meetingM2M` (`meeting_id`)
+);
+
+
+
+
+
+CREATE TABLE `customer` (
+  `CUST_ID` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `NAME` VARCHAR(100) NOT NULL,
+  `AGE` INT(10) UNSIGNED NOT NULL,
+  PRIMARY KEY (`CUST_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+

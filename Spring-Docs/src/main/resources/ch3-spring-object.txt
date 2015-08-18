@@ -1,0 +1,97 @@
+
+Spring Bean : A bean an object that is instantiated , assembled , and otherwise managed by Spring Container.
+
+######################  Container Overview ##########################
+
+ org.springframework.context.ApplicationContext represents the Spring IoC container and is responsible for instantiating, configuring,
+  and assembling the aforementioned beans. The container gets its instructions on what objects to instantiate, configure, and assemble by 
+  reading configuration meta data. The configuration meta data is represented in XML, Java annotations, or Java code. 
+  It allows you to express the objects that compose your application and  the rich interdependencies between such objects.
+  
+  
+ ######################## 3.2.1 Configuration meta data ##############################
+ 
+ 1) Configuration Data provided by using XML File.
+ 2) Annotation Based Configuration.
+ 3) Java Based Configuration.
+ 
+ ##################### Instantiating a Container ######################################
+ 
+ 1) With in the container itself , these bean definition are represented as BeanDefination objects. 
+ 
+ Table 3.1. The bean definition
+ 
+Property												Explained in...
+class	 					 							“Instantiating beans”
+name													“Naming beans”
+scope													“Bean scopes”
+constructor arguments									“Dependency injection”
+properties												“Dependency injection”
+autowiring mode											“Autowiring collaborators”
+lazy-initialization mode								“Lazy-initialized beans”
+initialization method									“Initialization callbacks”
+destruction method									   s “Destruction callbacks”  
+
+
+2) Aliasing a bean outside the bean definition
+ <alias name="fromName" alias="toName"/>
+ 
+ 
+3)  Instantiating beans
+
+	1)  Instantiation with a constructor.
+	2)  Instantiation with a static factory method.
+			<bean id="clientService"  class="examples.ClientService"  factory-method="createInstance"/>
+	
+	
+	
+1) idref : error prone and checking bean existence at deployment time
+2) local : Validates dependency bean against the local configuration file.
+
+###################### References to other beans (collaborators) ############################
+
+<ref bean="someBean"/> / <ref local="someBean"/>
+
+
+<!-- in the child (descendant) context -->
+<bean id="accountService"  <-- bean name is the same as the parent bean -->
+    class="org.springframework.aop.framework.ProxyFactoryBean">
+    <property name="target">
+        <ref parent="accountService"/>  <!-- notice how we refer to the parent bean -->
+    </property>
+  <!-- insert other configuration and dependencies as required here -->
+</bean>
+
+1 ) parent : searches bean in its parent 
+
+######################3 Inner Bean #############################
+<bean id="outer" class="...">
+<!-- instead of using a reference to a target bean, simply define the target bean inline -->
+<property name="target">
+  <bean class="com.example.Person"> <!-- this is the inner bean -->
+    <property name="name" value="Fiona Apple"/>
+    <property name="age" value="25"/>
+  </bean>
+</property>
+</bean>
+
+2) depends-on : f a bean is a dependency of another that usually means that one bean is set as a property of another. Typically you accomplish this with the <ref/> element in XML-based configuration metadata. However,
+ 	sometimes dependencies between beans are less direct; for example, a static initializer in a class needs to be triggered, such as database driver registration. 
+ 	The depends-on attribute can explicitly force one or more beans to be initialized before the bean using this element is initialized. 
+	The following example uses the depends-on attribute to express a dependency on a single bean:
+ 
+############################## Auto Wiring collaborators ################################################
+
+Modes :
+
+1) no (autowire="no"  default ). No autowiring . Bean references must be defined via ref element. 
+2) byName (autowire="byName")
+3) byType
+4) constructor :
+
+		Excluding a bean from autowiring
+	autowire-candidate=false;
+
+
+ 
+ 

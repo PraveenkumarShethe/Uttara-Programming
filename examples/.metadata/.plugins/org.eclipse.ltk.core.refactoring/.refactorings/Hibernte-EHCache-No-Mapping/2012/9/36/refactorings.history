@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 1 elements(s) to &apos;Core-Java-IO/src/com.manju.characterstream&apos;&#x0D;&#x0A;- Original project: &apos;Hibernte-EHCache-No-Mapping&apos;&#x0D;&#x0A;- Destination element: &apos;Core-Java-IO/src/com.manju.characterstream&apos;&#x0D;&#x0A;- Original element: &apos;com.wakaleo.articles.TestTimer.java&apos;" description="Copy compilation unit" destination="/src&lt;com.manju.characterstream" element1="/src\/test\/java&lt;com.wakaleo.articles{TestTimer.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" log="/src\/test\/java&lt;com.wakaleo.articles{TestTimer.java&#x09;true&#x09;false" policy="org.eclipse.jdt.ui.copyResources" stamp="1346999481442" units="1" version="1.0"/>
+</session>

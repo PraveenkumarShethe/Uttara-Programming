@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+
+<!--  Destination and Connection Factories -->
+<!--  #################################### -->
+<bean name="jmsConnectionFactory" class="org.springframework.jndi.JndiObjectFactoryBean">
+	<property name="jndiName" value="java:ConnectionFactory" />
+</bean>
+<bean name="queueDestination" class="org.springframework.jndi.JndiObjectFactoryBean">
+	<property name="jndiName" value="queue/testQueue" />
+</bean>
+<bean name="topicDestination" class="org.springframework.jndi.JndiObjectFactoryBean">
+	<property name="jndiName" value="topic/testTopic" />
+</bean>
+<!--  #################################### -->
+
+
+
+<!--  Beans for Queue based Message Handling -->
+<!--  ###################################### -->
+<!-- jmsTemplate for client / server -->
+<bean name="queueMessageTemplate" class="org.springframework.jms.core.JmsTemplate">
+	<property name="connectionFactory" ref="jmsConnectionFactory" />
+	<property name="defaultDestination" ref="queueDestination" />
+	<property name="messageConverter" ref="myMessageConvertor"></property>
+	<property name="receiveTimeout" value="30" />
+</bean>
+
+<!-- Manual Message Senders and Receivers -->
+<!-- Comment out the listeners if you want to test code for manually receiving messages -->
+<bean id="myMessageConvertor" class="com.tecnotree.jmstuts.MyMessageConverter">
+</bean>
+<bean name="jmsQueueSend" class="com.tecnotree.jmstuts.JMSQueueSender" depends-on="jmsQueueReceive" lazy-init="false">
+	<property name="jmsTemplate" ref="queueMessageTemplate"/>
+</bean>
+<bean name="jmsQueueReceive" class="com.tecnotree.jmstuts.JMSQueueReceiver" lazy-init="false">
+	<property name="jmsTemplate" ref="queueMessageTemplate"/>
+</bean>
+
+<!--  Message Listener Based Consumer  -->
+<bean id="messageListenerq01" class="com.tecnotree.jmstuts.MyMessageListener">
+	<property name="messageListenerId" value="QueueListener1"></property>
+</bean>
+<bean id="messageListenerq02" class="com.tecnotree.jmstuts.MyMessageListener">
+	<property name="messageListenerId" value="QueueListener2"></property>
+</bean>
+<bean id="jmsContainer01" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+    <property name="connectionFactory" ref="jmsConnectionFactory"/>
+    <property name="destination" ref="queueDestination"/>
+    <property name="messageListener" ref="messageListenerq01" />
+</bean>
+<bean id="jmsContainer02" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+    <property name="connectionFactory" ref="jmsConnectionFactory"/>
+    <property name="destination" ref="queueDestination"/>
+    <property name="messageListener" ref="messageListenerq02" />
+</bean>
+
+<!--  ###################################### -->
+<!--  ##############  TOPIC  ############### -->
+<!--  ###################################### -->
+
+
+<bean name="topicMessageTemplate" class="org.springframework.jms.core.JmsTemplate">
+	<property name="connectionFactory" ref="jmsConnectionFactory" />
+	<property name="defaultDestination" ref="topicDestination" />
+	<property name="pubSubDomain" value="true"/>
+	<property name="receiveTimeout" value="30" />
+</bean>
+<bean name="jmsTopicSend" class="com.tecnotree.jmstuts.topic.MyTopicProducer" lazy-init="false">
+	<property name="jmsTemplate" ref="topicMessageTemplate"/>
+</bean>
+<bean name="jmsTopicReceive" class="com.tecnotree.jmstuts.topic.MyTopicConsumer" lazy-init="false">
+	<property name="jmsTemplate" ref="topicMessageTemplate"/>
+</bean>
+
+<!-- Listeners -->
+<!-- ######################################## -->
+<bean id="messageListenert01" class="com.tecnotree.jmstuts.MyMessageListener" >
+	<property name="messageListenerId" value="TopicListener1"></property>
+</bean>
+<bean id="messageListenert02" class="com.tecnotree.jmstuts.MyMessageListener" >
+	<property name="messageListenerId" value="TopicListener2"></property>
+</bean>
+<bean id="jmsContainerTopic01" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+    <property name="connectionFactory" ref="jmsConnectionFactory"/>
+    <property name="destination" ref="topicDestination"/>
+    <property name="messageListener" ref="messageListenert01" />
+</bean>
+<bean id="jmsContainerTopic02" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+    <property name="connectionFactory" ref="jmsConnectionFactory"/>
+    <property name="destination" ref="topicDestination"/>
+    <property name="messageListener" ref="messageListenert02" />
+</bean>
+
+</beans>

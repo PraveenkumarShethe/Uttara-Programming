@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"        
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.manju.one2one">
+	
+	<class name="Employee121" table="EMPLOYEE121">
+		<id column="EMPLOYEE_ID" name="employeeId">
+			<generator class="native">
+				
+			</generator>
+			
+		</id>
+		
+		
+		<one-to-one name="employeeDetail121" class="EmployeeDetail121" cascade="save-update" lazy="false">
+			
+		</one-to-one>
+		<property name="firstName" column="firstname" type="string"/>
+		<property name="lastName" column="lastname" type="string"/>
+		<property name="birthDate" column="birth_date" type="date"/>
+		<property name="cellphone" column="cell_phone" type="string"/>
+		
+		
+		
+		
+		
+	</class>
+	
+	
+</hibernate-mapping>

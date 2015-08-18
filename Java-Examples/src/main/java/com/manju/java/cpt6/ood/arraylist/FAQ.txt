@@ -1,0 +1,12 @@
+ADD
+check index and size throws exception if index > size;
+checkAlmostFull if 80% filled  move contents from current list and  temp list and  double the size of the current list then copy from temp to old.
+
+
+REMOVE : check index > size then throw Exception
+ if index removed from middle copy remaining element from right to left;
+ 
+ 
+ 
+ Implement Doubly linked list ArrayList:
+ Implement Node Based ArrayList

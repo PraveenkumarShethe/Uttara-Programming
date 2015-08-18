@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://cxf.apache.org/bindings/xformat" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://tecnomen.com/m2m" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SubscriberWSService" targetNamespace="http://tecnomen.com/m2m">
+  <wsdl:types>
+<xsd:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://tecnomen.com/m2m">
+<xsd:complexType name="ArrayOfFeature">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="feature" nillable="true" type="tns:feature"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="Address">
+<xsd:sequence>
+<xsd:element name="uri" type="xsd:string"/>
+<xsd:element name="type" type="tns:AddressPlan"/>
+</xsd:sequence>
+<xsd:attribute name="id" type="xsd:long"/>
+</xsd:complexType>
+<xsd:simpleType name="AddressPlan">
+<xsd:restriction base="xsd:string">
+<xsd:enumeration value="Undefined"/>
+<xsd:enumeration value="IP"/>
+<xsd:enumeration value="Multicast"/>
+<xsd:enumeration value="Unicast"/>
+<xsd:enumeration value="E164"/>
+<xsd:enumeration value="E164_SHORT"/>
+<xsd:enumeration value="AESA"/>
+<xsd:enumeration value="URI"/>
+<xsd:enumeration value="NSAP"/>
+<xsd:enumeration value="SMTP"/>
+<xsd:enumeration value="E.164 Mobile"/>
+<xsd:enumeration value="X400"/>
+<xsd:enumeration value="SIP"/>
+<xsd:enumeration value="H323"/>
+<xsd:enumeration value="GT"/>
+<xsd:enumeration value="SSN"/>
+<xsd:enumeration value="SLEE Profile Table"/>
+<xsd:enumeration value="SLEE Profile"/>
+</xsd:restriction>
+</xsd:simpleType>
+<xsd:complexType name="subscription">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="classOfServiceId" type="xsd:long"/>
+<xsd:element minOccurs="0" name="lastSubscriberAccessTime" type="xsd:long"/>
+<xsd:element minOccurs="0" name="lastVisitedAccessTime" type="xsd:long"/>
+<xsd:element minOccurs="0" name="notificationConfigurations" type="tns:ArrayOfNotificationConfiguration"/>
+<xsd:element minOccurs="0" name="serviceId" type="xsd:long"/>
+<xsd:element minOccurs="0" name="state" type="tns:state"/>
+<xsd:element minOccurs="0" name="subscriberId" type="xsd:long"/>
+<xsd:element minOccurs="0" name="features" type="tns:ArrayOfFeature"/>
+<xsd:element minOccurs="0" name="provisionableFeatures" type="tns:ArrayOfFeature"/>
+<xsd:element minOccurs="0" name="properties" type="tns:ArrayOfProperty"/>
+</xsd:sequence>
+<xsd:attribute name="id" type="xsd:long"/>
+</xsd:complexType>
+<xsd:complexType name="feature">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="classOfServiceProperties" type="tns:ArrayOfProperty"/>
+<xsd:element minOccurs="0" name="disabled" type="xsd:boolean"/>
+<xsd:element minOccurs="0" name="provisioner" type="tns:provisioner"/>
+<xsd:element minOccurs="0" name="serviceProperties" type="tns:ArrayOfProperty"/>
+<xsd:element minOccurs="0" name="subscriberProperties" type="tns:ArrayOfProperty"/>
+<xsd:element minOccurs="0" name="suspended" type="xsd:boolean"/>
+</xsd:sequence>
+<xsd:attribute name="name" type="xsd:string"/>
+<xsd:attribute name="type" type="xsd:string"/>
+</xsd:complexType>
+<xsd:simpleType name="state">
+<xsd:restriction base="xsd:string">
+<xsd:enumeration value="ACTIVE"/>
+<xsd:enumeration value="INACTIVE"/>
+</xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="provisioner">
+<xsd:restriction base="xsd:string">
+<xsd:enumeration value="NONE"/>
+<xsd:enumeration value="CUSTOMER_SUPPORT"/>
+<xsd:enumeration value="SUBSCRIBER"/>
+</xsd:restriction>
+</xsd:simpleType>
+<xsd:complexType name="ArrayOfAddress">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="Address" type="tns:Address"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="notificationConfiguration">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="active" type="xsd:boolean"/>
+<xsd:element minOccurs="0" name="address" type="tns:Address"/>
+<xsd:element minOccurs="0" name="channel" type="tns:channel"/>
+<xsd:element minOccurs="0" name="properties" nillable="true" type="tns:ArrayOfProperty"/>
+</xsd:sequence>
+<xsd:attribute name="id" type="xsd:long"/>
+</xsd:complexType>
+<xsd:complexType name="ArrayOfProperty">
+<xsd:all>
+<xsd:element minOccurs="0" name="_lockCounter" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="_delegate" type="tns:textProperty"/>
+<xsd:element minOccurs="0" name="deletedMessageRetentionTime" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="calledPartyEnabled" type="tns:booleanProperty"/>
+<xsd:element minOccurs="0" name="serviceLevel" type="tns:textProperty"/>
+<xsd:element minOccurs="0" name="interPromptPauseLengthShort" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="minimumGreetingLength" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="inputTimeout" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="maximumFaxNumberLength" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="personalText" type="tns:textProperty"/>
+<xsd:element minOccurs="0" name="dailyBarringPeriod" type="tns:timerangeProperty"/>
+<xsd:element minOccurs="0" name="callingPartyEnabled" type="tns:booleanProperty"/>
+<xsd:element minOccurs="0" name="aNumberMustBeSubscriber" type="tns:booleanProperty"/>
+<xsd:element minOccurs="0" name="tutorialCompleted" type="tns:booleanProperty"/>
+<xsd:element minOccurs="0" name="clearInterestedClientListOnMCNDelivery" type="tns:booleanProperty"/>
+<xsd:element minOccurs="0" name="newMessageRetentionTime" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="callingNumberClir" type="tns:listProperty"/>
+<xsd:element minOccurs="0" name="envelopeMenuEnabled" type="tns:booleanProperty"/>
+<xsd:element minOccurs="0" name="messageUse12HoursFormat" type="tns:booleanProperty"/>
+<xsd:element minOccurs="0" name="pinMaxAttempts" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="serviceType" type="tns:textProperty"/>
+<xsd:element minOccurs="0" name="oldVoiceMessageListOrder" type="tns:listProperty"/>
+<xsd:element minOccurs="0" name="personalNumbers" type="tns:textProperty"/>
+<xsd:element minOccurs="0" name="minimumMessageLength" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="maxTutorialCount" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="cancelOnRetrieval" type="tns:listProperty"/>
+<xsd:element minOccurs="0" name="callingPartyNumber" type="tns:listProperty"/>
+<xsd:element minOccurs="0" name="savedVoiceMessageListOrder" type="tns:listProperty"/>
+<xsd:element minOccurs="0" name="pinProtection" type="tns:booleanProperty"/>
+<xsd:element minOccurs="0" name="locked" type="tns:listProperty"/>
+<xsd:element minOccurs="0" name="maximumDestinationNumberLength" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="callAllowedFromAniNumbersOnly" type="tns:booleanProperty"/>
+<xsd:element minOccurs="0" name="cookieExpirationTime" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="savedMessageRetentionTime" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="activeNationalGreeting" type="tns:listProperty"/>
+<xsd:element minOccurs="0" name="maxAge" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="resetPasswordOnRequest" type="tns:booleanProperty"/>
+<xsd:element minOccurs="0" name="maxCount" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="tutorial1Completed" type="tns:booleanProperty"/>
+<xsd:element minOccurs="0" name="groupPerANumber" type="tns:booleanProperty"/>
+<xsd:element minOccurs="0" name="internationalGreetingEnabled" type="tns:booleanProperty"/>
+<xsd:element minOccurs="0" name="internationalNumberAllowed" type="tns:booleanProperty"/>
+<xsd:element minOccurs="0" name="savedFaxMessageListOrder" type="tns:listProperty"/>
+<xsd:element minOccurs="0" name="nonDisconnectingMenuTimeout" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="minimumDestinationNumberLength" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="maximumCallLength" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="forwardedMessageState" type="tns:listProperty"/>
+<xsd:element minOccurs="0" name="shadowId" type="tns:textProperty"/>
+<xsd:element minOccurs="0" name="personalGreetingCount" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="releaseCodeMobileNotReachable" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="route" type="tns:textProperty"/>
+<xsd:element minOccurs="0" name="maximumMessageCount" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="releaseCodeUserBusy" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="activeInternationalGreeting" type="tns:listProperty"/>
+<xsd:element minOccurs="0" name="tutorial2Completed" type="tns:booleanProperty"/>
+<xsd:element minOccurs="0" name="blindSMSEnabled" type="tns:booleanProperty"/>
+<xsd:element minOccurs="0" name="lockingDuration" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="tutorialVisitCount" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="maxNonDisconnectingMenuTimeouts" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="enabledSystemNumbers" type="tns:textProperty"/>
+<xsd:element minOccurs="0" name="maximumMessageLength" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="defaultNotificationConfiguration" type="tns:mapProperty"/>
+<xsd:element minOccurs="0" name="envelope" type="tns:textProperty"/>
+<xsd:element minOccurs="0" name="aNumberList" type="tns:booleanProperty"/>
+<xsd:element minOccurs="0" name="maxMenuTimeouts" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="faxRetentionTime" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="type" type="tns:listProperty"/>
+<xsd:element minOccurs="0" name="adminText" type="tns:textProperty"/>
+<xsd:element minOccurs="0" name="sendasAttachment" type="tns:booleanProperty"/>
+<xsd:element minOccurs="0" name="menuTimeout" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="automaticFaxDelivery" type="tns:booleanProperty"/>
+<xsd:element minOccurs="0" name="absentEnabled" type="tns:mapProperty"/>
+<xsd:element minOccurs="0" name="faxForwardFormat" type="tns:listProperty"/>
+<xsd:element minOccurs="0" name="bNumberMustBeSubscriber" type="tns:booleanProperty"/>
+<xsd:element minOccurs="0" name="asnOnNMN" type="tns:booleanProperty"/>
+<xsd:element minOccurs="0" name="defaultDomain" type="tns:textProperty"/>
+<xsd:element minOccurs="0" name="asnBusyPollActive" type="tns:booleanProperty"/>
+<xsd:element minOccurs="0" name="releaseCode" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="maximumGreetingLength" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="minimumFaxNumberLength" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="appendExtensions" type="tns:booleanProperty"/>
+<xsd:element minOccurs="0" name="moduleChangeAllowed" type="tns:textProperty"/>
+<xsd:element minOccurs="0" name="quotaThreshold" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="interPromptPauseLengthMedium" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="redirectingNumber" type="tns:textProperty"/>
+<xsd:element minOccurs="0" name="releaseCodeNoAnswer" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="enabledPersonalNumbers" type="tns:textProperty"/>
+<xsd:element minOccurs="0" name="menuPromptPauseLength" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="newFaxMessageListOrder" type="tns:listProperty"/>
+<xsd:element minOccurs="0" name="oldMessageRetentionTime" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="snCode" type="tns:textProperty"/>
+<xsd:element minOccurs="0" name="oldFaxMessageListOrder" type="tns:listProperty"/>
+<xsd:element minOccurs="0" name="internationalDepositGreetingCount" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="ascEmailDomainAddress" type="tns:textProperty"/>
+<xsd:element minOccurs="0" name="cascadeDeleteEnabled" type="tns:booleanProperty"/>
+<xsd:element minOccurs="0" name="maxInvalidInputs" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="smsLocked" type="tns:booleanProperty"/>
+<xsd:element minOccurs="0" name="clirAllowed" type="tns:booleanProperty"/>
+<xsd:element minOccurs="0" name="busyPollValidityPeriod" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="redirectingNumberClir" type="tns:booleanProperty"/>
+<xsd:element minOccurs="0" name="prefixes" type="tns:textProperty"/>
+<xsd:element minOccurs="0" name="lastCOSChange" type="tns:datetimeProperty"/>
+<xsd:element minOccurs="0" name="confirmationPromptTimeout" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="interactive" type="tns:booleanProperty"/>
+<xsd:element minOccurs="0" name="maximumPhoneNumberLength" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="renewRetentionTimeOnRecall" type="tns:booleanProperty"/>
+<xsd:element minOccurs="0" name="interPromptPauseLengthLong" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="subscriberId" type="tns:textProperty"/>
+<xsd:element minOccurs="0" name="migrationTutorialEnabled" type="tns:booleanProperty"/>
+<xsd:element minOccurs="0" name="minimumPhoneNumberLength" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="tutorial4Completed" type="tns:booleanProperty"/>
+<xsd:element minOccurs="0" name="automaticFaxForward" type="tns:booleanProperty"/>
+<xsd:element minOccurs="0" name="languageMenu" type="tns:booleanProperty"/>
+<xsd:element minOccurs="0" name="automaticVoiceForward" type="tns:booleanProperty"/>
+<xsd:element minOccurs="0" name="messageMenuEnabled" type="tns:booleanProperty"/>
+<xsd:element minOccurs="0" name="_messageStoreId" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="changeMessageState" type="tns:listProperty"/>
+<xsd:element minOccurs="0" name="systemNumbers" type="tns:textProperty"/>
+<xsd:element minOccurs="0" name="maximumNumberOfFaxPages" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="automaticVideoForward" type="tns:booleanProperty"/>
+<xsd:element minOccurs="0" name="maximumLockingsTotal" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="maxInputTimeouts" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="originalCalledNumber" type="tns:textProperty"/>
+<xsd:element minOccurs="0" name="pinDefaultCheck" type="tns:booleanProperty"/>
+<xsd:element minOccurs="0" name="newVoiceMessageListOrder" type="tns:listProperty"/>
+<xsd:element minOccurs="0" name="retentionTime" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="tutorial3Completed" type="tns:booleanProperty"/>
+<xsd:element minOccurs="0" name="migrated" type="tns:booleanProperty"/>
+<xsd:element minOccurs="0" name="timeout" type="tns:numberProperty"/>
+<xsd:element minOccurs="0" name="aNumberCLIR" type="tns:booleanProperty"/>
+</xsd:all>
+</xsd:complexType>
+<xsd:complexType name="booleanProperty">
+<xsd:simpleContent>
+<xsd:extension base="xsd:boolean">
+<xsd:attributeGroup ref="tns:attributes"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="textProperty">
+<xsd:simpleContent>
+<xsd:extension base="xsd:string">
+<xsd:attributeGroup ref="tns:attributes"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="timerangeProperty">
+<xsd:simpleContent>
+<xsd:extension base="xsd:string">
+<xsd:attributeGroup ref="tns:attributes"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="datetimeProperty">
+<xsd:simpleContent>
+<xsd:extension base="xsd:dateTime">
+<xsd:attributeGroup ref="tns:attributes"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="numberProperty">
+<xsd:simpleContent>
+<xsd:extension base="xsd:long">
+<xsd:attributeGroup ref="tns:attributes"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="listProperty">
+<xsd:simpleContent>
+<xsd:extension base="xsd:string">
+<xsd:attributeGroup ref="tns:attributes"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="voiceGreetingProperty">
+<xsd:simpleContent>
+<xsd:extension base="xsd:string">
+<xsd:attributeGroup ref="tns:attributes"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="mapProperty">
+<xsd:simpleContent>
+<xsd:extension base="xsd:string">
+<xsd:attributeGroup ref="tns:attributes"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="arrayProperty">
+<xsd:simpleContent>
+<xsd:extension base="xsd:string">
+<xsd:attributeGroup ref="tns:attributes"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:attributeGroup name="attributes">
+<xsd:attribute default="false" name="copy" type="xsd:boolean"/>
+<xsd:attribute default="false" name="edit" type="xsd:boolean"/>
+<xsd:attribute default="false" name="default" type="xsd:boolean"/>
+</xsd:attributeGroup>
+<xsd:complexType name="ArrayOfNotificationConfiguration">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="notificationConfiguration" nillable="true" type="tns:notificationConfiguration"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ArrayOfSubscription">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="subscription" nillable="true" type="tns:subscription"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="subscriber">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="chargingClass" type="xsd:string"/>
+<xsd:element minOccurs="0" name="domainId" type="xsd:long"/>
+<xsd:element minOccurs="0" name="domainName" type="xsd:string"/>
+<xsd:element minOccurs="0" name="locale" type="xsd:string"/>
+<xsd:element minOccurs="0" name="msisdn" type="tns:Address"/>
+<xsd:element minOccurs="0" name="notificationAddresses" type="tns:ArrayOfAddress"/>
+<xsd:element minOccurs="0" name="password" type="xsd:string"/>
+<xsd:element minOccurs="0" name="pin" type="xsd:string"/>
+<xsd:element minOccurs="0" name="secondaryAddresses" type="tns:ArrayOfAddress"/>
+<xsd:element minOccurs="0" name="subscriptions" type="tns:ArrayOfSubscription"/>
+<xsd:element minOccurs="0" name="timezone" type="xsd:string"/>
+<xsd:element minOccurs="0" name="properties" type="tns:ArrayOfProperty"/>
+</xsd:sequence>
+<xsd:attribute name="id" type="xsd:long"/>
+</xsd:complexType>
+<xsd:complexType name="channel">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="name" type="xsd:string"/>
+<xsd:element name="type" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ArrayOfSubscriber">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="subscriber" nillable="true" type="tns:subscriber"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getSubscriberByMsisdnAndDomain" type="tns:getSubscriberByMsisdnAndDomain"/>
+<xsd:complexType name="getSubscriberByMsisdnAndDomain">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="msisdn" type="xsd:string"/>
+<xsd:element minOccurs="0" name="domainName" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getSubscriberByMsisdnAndDomainResponse" type="tns:getSubscriberByMsisdnAndDomainResponse"/>
+<xsd:complexType name="getSubscriberByMsisdnAndDomainResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="subscriber" type="tns:subscriber"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="findSubscribersByMsisdn" type="tns:findSubscribersByMsisdn"/>
+<xsd:complexType name="findSubscribersByMsisdn">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="msisdn" type="xsd:string"/>
+<xsd:element name="startIndex" type="xsd:int"/>
+<xsd:element name="endIndex" type="xsd:int"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="findSubscribersByMsisdnResponse" type="tns:findSubscribersByMsisdnResponse"/>
+<xsd:complexType name="findSubscribersByMsisdnResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="subscribers" type="tns:ArrayOfSubscriber"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getSubscriberById" type="tns:getSubscriberById"/>
+<xsd:complexType name="getSubscriberById">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="id" type="xsd:long"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getSubscriberByIdResponse" type="tns:getSubscriberByIdResponse"/>
+<xsd:complexType name="getSubscriberByIdResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="subscriber" type="tns:subscriber"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="createSubscriber" type="tns:createSubscriber"/>
+<xsd:complexType name="createSubscriber">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="subscriber" type="tns:subscriber"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="createSubscriberResponse" type="tns:createSubscriberResponse"/>
+<xsd:complexType name="createSubscriberResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="subscriber" type="tns:subscriber"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="updateSubscriber" type="tns:updateSubscriber"/>
+<xsd:complexType name="updateSubscriber">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="subscriber" type="tns:subscriber"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="updateSubscriberResponse" type="tns:updateSubscriberResponse"/>
+<xsd:complexType name="updateSubscriberResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="subscriber" type="tns:subscriber"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getSubscriberByMsisdn" type="tns:getSubscriberByMsisdn"/>
+<xsd:complexType name="getSubscriberByMsisdn">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="msisdn" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getSubscriberByMsisdnResponse" type="tns:getSubscriberByMsisdnResponse"/>
+<xsd:complexType name="getSubscriberByMsisdnResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="subscriber" type="tns:subscriber"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="deleteSubscriber" type="tns:deleteSubscriber"/>
+<xsd:complexType name="deleteSubscriber">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="id" type="xsd:long"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="deleteSubscriberResponse" type="tns:deleteSubscriberResponse"/>
+<xsd:complexType name="deleteSubscriberResponse">
+<xsd:sequence/>
+</xsd:complexType>
+<xsd:element name="errorcode" nillable="true" type="xsd:string"/>
+</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getSubscriberByMsisdnAndDomain">
+    <wsdl:part element="tns:getSubscriberByMsisdnAndDomain" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findSubscribersByMsisdnResponse">
+    <wsdl:part element="tns:findSubscribersByMsisdnResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteSubscriberResponse">
+    <wsdl:part element="tns:deleteSubscriberResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findSubscribersByMsisdn">
+    <wsdl:part element="tns:findSubscribersByMsisdn" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSubscriberById">
+    <wsdl:part element="tns:getSubscriberById" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createSubscriberResponse">
+    <wsdl:part element="tns:createSubscriberResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSubscriberByMsisdnResponse">
+    <wsdl:part element="tns:getSubscriberByMsisdnResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteSubscriber">
+    <wsdl:part element="tns:deleteSubscriber" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createSubscriber">
+    <wsdl:part element="tns:createSubscriber" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSubscriberByMsisdn">
+    <wsdl:part element="tns:getSubscriberByMsisdn" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateSubscriber">
+    <wsdl:part element="tns:updateSubscriber" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateSubscriberResponse">
+    <wsdl:part element="tns:updateSubscriberResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSubscriberByMsisdnAndDomainResponse">
+    <wsdl:part element="tns:getSubscriberByMsisdnAndDomainResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSubscriberByIdResponse">
+    <wsdl:part element="tns:getSubscriberByIdResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="M2MException">
+    <wsdl:part element="tns:errorcode" name="M2MException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="SubscriberWS">
+    <wsdl:operation name="getSubscriberByMsisdnAndDomain">
+      <wsdl:input message="tns:getSubscriberByMsisdnAndDomain" name="getSubscriberByMsisdnAndDomain">
+    </wsdl:input>
+      <wsdl:output message="tns:getSubscriberByMsisdnAndDomainResponse" name="getSubscriberByMsisdnAndDomainResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findSubscribersByMsisdn">
+      <wsdl:input message="tns:findSubscribersByMsisdn" name="findSubscribersByMsisdn">
+    </wsdl:input>
+      <wsdl:output message="tns:findSubscribersByMsisdnResponse" name="findSubscribersByMsisdnResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSubscriberById">
+      <wsdl:input message="tns:getSubscriberById" name="getSubscriberById">
+    </wsdl:input>
+      <wsdl:output message="tns:getSubscriberByIdResponse" name="getSubscriberByIdResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:M2MException" name="M2MException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="createSubscriber">
+      <wsdl:input message="tns:createSubscriber" name="createSubscriber">
+    </wsdl:input>
+      <wsdl:output message="tns:createSubscriberResponse" name="createSubscriberResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:M2MException" name="M2MException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateSubscriber">
+      <wsdl:input message="tns:updateSubscriber" name="updateSubscriber">
+    </wsdl:input>
+      <wsdl:output message="tns:updateSubscriberResponse" name="updateSubscriberResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:M2MException" name="M2MException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getSubscriberByMsisdn">
+      <wsdl:input message="tns:getSubscriberByMsisdn" name="getSubscriberByMsisdn">
+    </wsdl:input>
+      <wsdl:output message="tns:getSubscriberByMsisdnResponse" name="getSubscriberByMsisdnResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:M2MException" name="M2MException">
+    </wsdl:fault>
+    </wsdl:operation>
+    The value of Manju 
+  </wsdl:portType>
+  <wsdl:binding name="SubscriberWSServiceSoapBinding" type="tns:SubscriberWS">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="findSubscribersByMsisdn">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findSubscribersByMsisdn">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findSubscribersByMsisdnResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSubscriberByMsisdnAndDomain">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getSubscriberByMsisdnAndDomain">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getSubscriberByMsisdnAndDomainResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSubscriberById">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getSubscriberById">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getSubscriberByIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="M2MException">
+        <soap:fault name="M2MException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="createSubscriber">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="createSubscriber">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createSubscriberResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="M2MException">
+        <soap:fault name="M2MException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateSubscriber">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updateSubscriber">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateSubscriberResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="M2MException">
+        <soap:fault name="M2MException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getSubscriberByMsisdn">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getSubscriberByMsisdn">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getSubscriberByMsisdnResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="M2MException">
+        <soap:fault name="M2MException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    The value of Manju 
+  </wsdl:binding>
+  <wsdl:service name="SubscriberWSService">
+    <wsdl:port binding="tns:SubscriberWSServiceSoapBinding" name="SubscriberWSPort">
+      <soap:address location="http://localhost:8080/mas/rest/subscriberws"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		
+	<property name="connection.url">jdbc:mysql://localhost/test</property>
+	
+	<property name="connection.username">jboss</property>	
+	
+	<property name="connection.driver_class">com.mysql.jdbc.Driver</property>	
+	
+	<property name="dialect">org.hibernate.dialect.MySQLDialect</property>	
+	
+	<property name="connection.password">jboss</property> 
+	
+	<property name="transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>  
+	
+	     
+	
+	<property name="current_session_context_class">thread</property>   
+	
+	
+	
+	  <property name="hibernate.show_sql">true</property>	
+
+		  <!-- 
+		
+        <property name="dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost/test</property>
+        <property name="connection.username">jboss</property>
+        <property name="connection.password">jboss</property> 
+     <property name="hibernate.c3p0.min_size">5</property> 
+        <property name="hibernate.c3p0.max_size">20</property> 
+        <property name="hibernate.c3p0.timeout">1800</property> 
+        <property name="hibernate.c3p0.max_statements">50</property>  
+		<property name="show_sql">false</property>
+		<property name="transaction.factory_class">
+             org.hibernate.transaction.JDBCTransactionFactory
+        </property>-->
+ 		<property name="hibernate.cache.use_query_cache">true</property>
+  		<property name="hibernate.cache.use_second_level_cache">false</property>
+ 		<property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
+
+		<mapping resource="com/wakaleo/articles/caching/businessobjects/Country.hbm.xml"/>
+		<mapping resource="com/wakaleo/articles/caching/businessobjects/Employee.hbm.xml"/>
+		<mapping resource="com/wakaleo/articles/caching/businessobjects/Language.hbm.xml"/>
+		<mapping resource="com/wakaleo/articles/caching/businessobjects/Airport.hbm.xml"/>
+
+	</session-factory>
+	
+</hibernate-configuration>

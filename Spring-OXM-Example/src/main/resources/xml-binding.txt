@@ -1,0 +1,8 @@
+I have to generate the classes from schema (XSD). Then I have to unmarhsall the XML into objects and then marshall the objects to XML.
+I have looked for various framework supporting that. I have looked for JAXB, Castor, XMLBeans, JIBX, Quick and Zeus.
+The finding are as:
+
+1. Quick and Zeus does not support the class generation from XSD, only supports class generation from DTD.
+2. JIBX does not support class generation from schema having enumeration or restriction tag.
+3. JAXB supports generation of classes but could not unmarshall the XML (provided to me, although it supports unmarshalling from other XMLs), as XSD have only complex types, so could not generate the classes corresponding to the root element. So failed due to the binding problem with the XML provided to me.
+4. Castor and XMLBeans are working fine. I am confused to use which of the approach. The problem is with the memory. I have run a lot of tests and have found that performance of XMLBeans is far better compared to Castor, but for larger XML (>20MB) the castor works fine but XMLBeans throws OutOfMemory Error. The observations are:

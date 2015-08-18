@@ -1,0 +1,7 @@
+As of Spring 3.0, Spring requires Hibernate 3.2 or later.
+
+################ GENERAL ORM INTEGRATION CONSIDERATIONS #######################
+
+1) Resource and Transaction Management.
+2) Exception Translation.( Hibernate Exception are Runtime Exception ) @Repository
+3) 

@@ -1,0 +1,14 @@
+package com.tecnomen.httpclient;
+
+public class LoginLogOutLoadTest {
+	
+	private String asvip;
+	private String sigInfoJson;
+	private int  noOfcalls;
+	private long timeForCalls;
+	
+	
+	
+	
+
+}

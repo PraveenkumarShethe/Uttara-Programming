@@ -1,0 +1,65 @@
+Reflection :
+
+Reflection in java provides ability to inspect and modify the runtime behavior of application.
+Reflection is one of the advance topic of core java. Using reflection we can inspect a class,interface, enums, get their structure, methods and fields information at runtime even though class is not accessible at compile time. 
+We can also use reflection to instantiate an object, invoke it’s methods, change field values.
+
+
+    Reflection in Java
+    Reflection for Classes
+        Get Class Object
+        Get Super Class
+        Get Public Member Classes
+        Get Declared Classes
+        Get Declaring Class
+        Getting Package Name
+        Getting Class Modifiers
+        Get Type Parameters
+        Get Implemented Interfaces
+        Get All Public Methods
+        Get All Public Constructors
+        Get All Public Fields
+        Get All Annotations
+    Reflection for Fields
+        Get Public Field
+        Field Declaring Class
+        Get Field Type
+        Get/Set Public Field Value
+        Get/Set Private Field Value
+    Reflection for Methods
+        Get Public Method
+        Invoking Public Method
+        Invoking Private Methods
+    Reflection for Constructors
+        Get Public Constructor
+        Instantiate Object using Constructor
+    Reflection for Annotations
+
+    
+ We should not use reflection in normal programming where we have already have access to class/interface because of the following drawback.
+ 
+ 
+ 
+    1) Poor Performance – Since reflection resolve the types dynamically, it involves processing like scanning the classpath to find the class to load, causing slow performance.
+    
+    2) Security Restrictions – Reflection requires runtime permissions that might not be available for system running under security manager. 
+    	This can cause you application to fail at runtime because of security manager.
+    3) Security Issues – Using reflection we can access part of code that we are not supposed to access, for example we can access private fields of a class and change it’s value. 
+    	This can be a serious security threat and cause your application to behave abnormally.
+    4) High Maintenance – Reflection code is hard to understand and debug, also any issues with the code can’t be found at 
+    	compile time because the classes might not be available, making it less flexible and hard to maintain.
+ 
+ 
+ 
+Get Class Object
+	We can get Class of an object using three methods – through static variable class, using getClass() method of object and java.lang.Class.forName(String fullyClassifiedClassName).
+ 	For primitive types and arrays, we can use static variable class. Wrapper classes provide another static variable TYPE to get the class.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

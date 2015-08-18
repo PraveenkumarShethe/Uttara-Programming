@@ -1,0 +1,14 @@
+package com.tecnomen.httpclient;
+
+public class LoginLoadTestParams {
+
+	private String sigInfoJson = "{}";
+		public String getSigInfoJson() {
+		return sigInfoJson;
+	}
+
+	public void setSigInfoJson(String sigInfoJson) {
+		this.sigInfoJson = sigInfoJson;
+	}
+		
+}

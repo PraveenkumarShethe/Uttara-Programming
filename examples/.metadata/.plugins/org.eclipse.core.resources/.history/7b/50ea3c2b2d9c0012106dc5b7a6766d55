@@ -1,0 +1,84 @@
+package com.tecnomen.httpclient;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
+import javax.swing.JEditorPane;
+
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.BasicResponseHandler;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.params.HttpParams;
+
+/**
+ * This example demonstrates the use of the {@link ResponseHandler} to simplify
+ * the process of processing the HTTP response and releasing associated resources.
+ */
+public class ClientWithResponseHandler {
+	
+	 Map<String, String> reqParams=new HashMap<String, String>();
+	
+	
+	public ClientWithResponseHandler()
+	{
+		reqParams.put("tecnomen.video", "false");
+		reqParams.put("local.uri", "tel:678");
+		reqParams.put("local.na", "4");
+		reqParams.put("local.np", "0");
+		reqParams.put("local.pi", "0");
+		reqParams.put("remote.na", "4");
+		reqParams.put("remote.np", "1");
+		reqParams.put("remote.pi", "0");
+		reqParams.put("remote.si", "3");
+		reqParams.put("tecnomen.video", "false");
+		reqParams.put("tecnomen.video", "false");
+		reqParams.put("tecnomen.video", "false");
+		reqParams.put("tecnomen.video", "false");
+		reqParams.put("tecnomen.video", "false");
+		reqParams.put("tecnomen.video", "false");
+		reqParams.put("tecnomen.video", "false");
+		reqParams.put("tecnomen.video", "false");
+		reqParams.put("tecnomen.video", "false");
+		reqParams.put("tecnomen.video", "false");
+		
+		
+	}
+	
+	
+	public void addHttpParams(HttpParams httpParams,Map<String, String> nameValues)
+	{
+	   Set<String> keySet=nameValues.keySet();
+       for(String name:keySet)
+       {
+    	   httpParams.setParameter(name, nameValues.get(name));  
+       }
+		
+	}
+
+    public final static void main(String[] args) throws Exception {
+
+        HttpClient httpclient = new DefaultHttpClient();
+        try {
+            HttpGet httpget = new HttpGet("http://10.50.47.33:8080/mas/login");
+            
+            System.out.println("executing request " + httpget.getURI());
+
+            // Create a response handler
+            ResponseHandler<String> responseHandler = new BasicResponseHandler();
+            String responseBody = httpclient.execute(httpget, responseHandler);
+            System.out.println("----------------------------------------");
+            System.out.println(responseBody);
+            System.out.println("----------------------------------------");
+
+        } finally {
+            // When HttpClient instance is no longer needed,
+            // shut down the connection manager to ensure
+            // immediate deallocation of all system resources
+            httpclient.getConnectionManager().shutdown();
+        }
+    }
+
+}
+

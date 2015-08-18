@@ -1,0 +1,37 @@
+Volatile versus Static.
+
+1) Static variables used in Object Context , where updation by one object reflects all other objects.
+2) if two threads t1 and t2 are accessing the same object and updating a variable which is declared as static then it means t1 and t2 can make their own
+	local copy of the same object ( including static variables) in their respective cache.
+	
+Volatile : 
+
+1) if two threads suppose t1 and t2 accessing the same object and updating variable declared as volatile then it means t1 and t2 can make their own local 
+	cache of the Object Except the variable which is declared as  a volatile.
+	so volatile variable will have only one main copy which will be updated by different threads and updation by one thread to the volatile variable will be 
+	immediately  reflect to other thread So volatile variable is used in the Thread Context.
+	
+	
+For performance reasons java does not require a JVM implementation to read value from or write a value to a shared variable in main memory or 
+	object heap memory .
+	Instead jvm might read a shared field variable value from processor register or cache collectively known as working memory.
+	
+	
+	Threads will have their own local working copy including static and non static instance variables.
+
+	
+	Methods that Operate on the Group
+	
+    getMaxPriority and setMaxPriority
+    getDaemon and setDaemon
+    getName
+    getParent and parentOf
+    toString \
+    
+    
+    Methods that Operate on All Threads within a Group
+    
+    
+    resume
+    stop
+    suspend 

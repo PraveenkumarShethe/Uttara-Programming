@@ -1,0 +1,34 @@
+Calling the new operator on a class type causes three events to occur:
+
+•    A new object is dynamically allocated in memory, and all instance variables are initialized to standard default values. The default values are null for
+     object variables and 0 for all base types except boolean variables (which are false by default).
+
+• 	 The constructor for the new object is called with the parameters specified. The constructor fills in meaningful values for the instance variables and per
+     forms any additional computations that must be done to create this object.
+
+• 	 After the constructor returns, the new operator returns a reference (that is, a memory address) to the newly created object.
+     If the expression is in the form of an assignment statement, then this address is stored in the object variable,so the object variable refers to this newly created object.
+
+
+1.1. Getting Started: Classes, Types, and Objects
+
+ • Instance Variables
+ • Variable Modifiers
+ 
+ The scope (or visibility) of instance variables can be controlled through the use. of the following variable modifiers:
+	• public: 		Anyone can access public instance variables.
+	• protected:	 Only methods of the same package or of its subclasses can access protected instance variables.
+	• private: 		Only methods of the same class (not methods of a subclass) can access private instance variables.
+	• friendly(default): If none of the above modifiers are used, the instance variable is considered friendly. Friendly instance variables can be accessed by any class in the same
+
+	• static: 	The static keyword is used to declare a variable that is associated with the class, not with individual instances of that class. Static variables are
+				used to store "global" information about a class (for example, a static variable could be used to maintain the total number of Gnome objects created). 
+			    Static variables exist even if no instance of their class is created.
+	• final:   final instance variable is one that must be assigned an initial value,and then· can never be assigned a new value after that. If it is a base type,
+				then it is a constant (like the MAX_HEIGHT constant in the Gnome class). If an object variable is final, then it will always refer to the same object (even
+				if that object changes its internal state).
+				
+				
+ 
+ 
+ 

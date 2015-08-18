@@ -1,0 +1,77 @@
+			
+NESTED CLASSES : classes defined Within the Class are called nested Classes.
+
+Nested classes can be further classified in to two types : 1) Inner Classes (Non Static Nested Classes)  2) Static Nested Classes.
+
+So Think of nested classes as a big container with two compartments , one for for Static Nested Classes and second one is for Non Static nested Classes .
+
+Technically Non static nested classes are called INNER Classes in Java.
+
+There are several compelling reasons for using nested classes, among them:
+
+  --> It is a way of logically grouping classes that are only used in one place.
+  --> It increases encapsulation.
+  --> Nested classes can lead to more readable and maintainable code.  
+
+
+
+<!-------------  					NON STATIC NESTED CLASSES OR INNER CLASSES    -------->
+
+ --> The definition of Inner Class Always Available for the outer class to use .(No Inner Class Object Automatically Instantiated by outer Class object) 
+
+ There are three type of Non Static Nested Classes
+  
+		  1) Member Inner Classes.
+		  2) Anonymous Inner Classes.
+		  3) Local Inner Classes.
+		  
+  A) These inner classes can be used in the context of containingclass ( outer class or enclosing class) . 
+  
+         			----------  Member Inner Classes  -------------	
+         			
+  A) its just like other class but will have access to all the member variable of Outer Class.
+  B) Outer Class will have the access of all the methods of Inner class . (No Worries About method modifiers).
+  C) We can create as many as of Inner Class Instance.
+  D) OuterNonStaticMemberNested out=new OuterNonStaticMemberNested();
+  E) OuterNonStaticMemberNested.InnerNonStaticMemberNested in=out.new InnerNonStaticMemberNested();
+  F) If Inner Class Defined with Private Access modifier then we can't create   Inner Class Object Out Side the Outer Class.
+  G) If Inner Class Defined with Other than Private Access modifier and have private method , those can be accessed only from  InnerClass objects 
+     Created within the OuterClass. we can't access if we create InnerClass Object Outside the Outer Class.
+  F) inner class can have private access modifier as we can't provide for Outer Class.
+  
+  
+  
+  
+  					---------- Anonymous Inner Class  (Anonymous non static nested class -----------        
+  	
+  	A class that have no name is called Anonymous Inner Class.
+  	
+  	A) Anonymous Class can be created by  Class (Abstract Class also) or Interface.		
+  						
+  					---------- Local Inner Class  (Local non static nested class -----------
+  					
+  		A class created inside the a method is known as Local Inner Classes.( If you want to invoke the methods of local inner classes you must
+  		instantiate this class inside the method.
+  		
+  	A) Local Variables Can't be private / public / protected .
+  	B) Local Inner Class can't be invoked from outside the method.
+  	C) Local Inner Classes can't be accessed non final local variables.
+  	
+  	
+  			------------------------------- Static Nested Classes -----------------------------------
+  			
+  		a Static class that is created inside the class in known as Static nested classes.
+  		
+  	A) it cannot access non static members.
+  	B) it can access static data members of outer class including private data members.
+  	C) static nested classes can't access non-static (instance) data members and methods.
+  	
+  	 			
+  					
+  
+
+
+
+
+
+

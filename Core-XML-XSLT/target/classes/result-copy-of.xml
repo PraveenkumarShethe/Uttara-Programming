@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://cxf.apache.org/bindings/xformat" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://tecnomen.com/m2m" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SubscriberWSService" targetNamespace="http://tecnomen.com/m2m">
+<Rowsets>
+<Rowset>
+    <Columns>
+        <Column Description="FirstName" MaxRange="1" MinRange="0" Name="FirstName" SQLDataType="12" SourceColumn="FirstName"/>
+        <Column Description="LastName" MaxRange="1" MinRange="0" Name="LastName" SQLDataType="12" SourceColumn="LastName"/>
+        <Column Description="Phone" MaxRange="1" MinRange="0" Name="Phone" SQLDataType="1" SourceColumn="Phone"/>
+    </Columns>
+    <Row>
+        <FirstName>Michael</FirstName>
+        <LastName>David</LastName>
+        
+    </Row>
+    <Row>
+        <FirstName>David</FirstName>
+        <LastName>Michael</LastName>
+        
+    </Row>
+    <Row>
+        <FirstName>Yang</FirstName>
+        <LastName>Christina</LastName>
+        
+    </Row>
+    <Row>
+        <FirstName>Grey</FirstName>
+        <LastName>Meredith</LastName>
+        
+    </Row>
+    <Row>
+        <FirstName>David</FirstName>
+        <LastName>Shepherd</LastName>
+        
+    </Row>
+</Rowset>
+</Rowsets>
+</wsdl:definitions>

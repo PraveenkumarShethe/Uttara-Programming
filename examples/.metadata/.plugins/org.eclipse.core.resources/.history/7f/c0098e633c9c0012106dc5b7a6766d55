@@ -1,0 +1,53 @@
+package com.tecnomen.httpclient;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+
+public class LoginLoadTestParams {
+
+	private String sigInfoJson = "{}";
+	
+	private  List<NameValuePair> reqParams;
+
+	public String getSigInfoJson() {
+		return sigInfoJson;
+	}
+
+	public void setSigInfoJson(String sigInfoJson) {
+		this.sigInfoJson = sigInfoJson;
+		this.setReqParams(addSigParamTpHttpRequest(sigInfoJson));
+	}
+	
+	public  List<NameValuePair> addSigParamTpHttpRequest(String sigInfoJson)
+	{
+		List <NameValuePair> nvps = new ArrayList <NameValuePair>(); 
+		
+	   Set<String> keySet=nameValues.keySet();
+       for(String name:keySet)
+       {
+    	   nvps.add(new BasicNameValuePair(name, nameValues.get(name))); 
+    	     
+       }
+       
+       return nvps;
+		
+	}
+
+	public List<NameValuePair> getReqParams() {
+		return reqParams;
+	}
+
+	public void setReqParams(List<NameValuePair> reqParams) {
+		this.reqParams = reqParams;
+	}
+	
+	
+	
+	
+
+}

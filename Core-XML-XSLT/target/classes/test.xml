@@ -1,0 +1,21 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Body>  
+        <ns1:DeptResponse xmlns:ns1="http://samplecomp.com">
+            <Department>
+                <Building bid="b_1579">
+                <DeptName>Sports</DeptName>
+                <DeptHead>
+                    <Person pid="123">
+                        <Name>David Shephard</Name>
+                        <Address>
+                            <Street>Test</Street>
+                            <State code="18">Georgia</State>            
+                        </Address>              
+                    </Person>
+                </DeptHead>
+                <DeptYear>1925</DeptYear>
+					</Building>
+            </Department>
+        </ns1:DeptResponse>
+    </soap:Body>
+</soap:Envelope>

@@ -1,0 +1,95 @@
+
+Annotation type is very similar to an interface with little difference.
+ 	We attach @ just before interface keyword.
+ 	Methods will not have parameters.
+ 	Methods will not have throws clause.
+ 	Method return types are restricted to primitives, String, Class, enums, annotations, and arrays of the preceding types.
+ 	We can assign a default value to method.
+Annotations are form of meta data , provide data /information about a program that is not part of the program itself .
+
+
+Annotation is meta data about the program embedded in the program itself , it can be parsed by java annotation tool or java compiler.
+We can specify availability of annotation by providing using @Retention annotation
+
+Annotations have a number of uses among them :
+
+1) Information for Compiler : Annotations can be used by compiler to detect errors and suppress warnings.
+2) Compile time and Deployment Time Processing :
+3) Runtime processing :
+
+Format Of Annotations 
+
+@name
+@name(name=value)
+@name(name1=value1,name2=value2)
+@name(value="")
+
+Where Annotations can be applied : Annotations can be applied to declaration of class, fields , methods and other program elements.
+
+Pre Defined Annotations:
+#######################################################################################################################################################
+Pre Defined Annotations Used By the Java Language.
+
+1) Deprecated : @Deprecated --> annotation indicates that marked element is deprecated and no longer available for future use.
+
+ Syntax :
+ 
+ 	/**
+ 	 *@deprecated
+ 	 * Explain why it was deprecated 
+ 	 */
+ 	 static void deprecatedMethod(){
+ 	 }
+ 
+ 2) Override : @Override --> This annotation informs the compiler that the element mean to override an element declared in a super class.
+   
+    Syntax :
+    
+     @Override
+     void overrideMethodName(){}
+     
+  3) SupressWarning : @SupressWarnings  -->     This annotation informs the compiler to suppress specific warnings that it would otherwise generate .
+   Every Compiler warning belongs to a category . The Java Language Specification lists two categories : 1) deprecation 2)unchecked 
+   
+######################################################################################################################################################   
+   
+   Annotations that apply to Other Annotations (META ANNOTATIONS)
+   
+   Annotations that apply to another annotations are called Meta annotations. there are several meta annotation types defined in java.lang.annotation package.
+   
+   Retention : @Retention -->  This annotation specifies how marked annotation stored .
+   		(indicates how long annotations with the annotated type are to be retained).
+   
+   @Retention(RetentionPolicy.******)
+   
+	   1)RetentionPolicy.SOURCE --> The Marked Annotation is retained only in the source level and ignored by the compiler.
+	   2)RetentionPolicy.CLASS  --> The Marked Annotation is retained by the compiler at compile time ,  but is ignored by JVM.
+	   3)RetentionPolicy.RUNTIME --> The Marked Annotation is retained by the JVM so it can be used by the Run Time Environment.
+	   
+   
+   @Documented (Documented) 
+   
+   		annotation indicates that whenever the specified annotation is used those elements should be documented using the Javadoc tool.
+   	
+   @Target : This annotation marks another annotation to restrict what kind of java elements the annotation can be applied to .   	
+   	
+	    ElementType.ANNOTATION_TYPE can be applied to an annotation type.
+	    ElementType.CONSTRUCTOR can be applied to a constructor.
+	    ElementType.FIELD can be applied to a field or property.
+	    ElementType.LOCAL_VARIABLE can be applied to a local variable.
+	    ElementType.METHOD can be applied to a method-level annotation.
+	    ElementType.PACKAGE can be applied to a package declaration.
+	    ElementType.PARAMETER can be applied to the parameters of a method.
+	    ElementType.TYPE can be applied to any element of a class.
+   	
+   	
+   	@Inherited : indicates that an annotation type is automatically inherited. If user queries the annotation type on a class declaration, 
+   		and the class declaration has no annotation for this type, then the class’s superclass will automatically be queried for the annotation type. 
+   		This process will be repeated until an annotation for this type is found, or the top of the class hierarchy (Object) is reached.
+   	
+   	
+   
+   
+   
+   
+  

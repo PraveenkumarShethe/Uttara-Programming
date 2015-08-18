@@ -1,0 +1,75 @@
+####################  JAXB ##########################
+JAXB Binding Compiler translates the W3C XML Schema into one or more java classes , a jaxb.properties , and possibly some resource files.
+JAXB also 	offers way to generate a schema from annotated java classes.
+
+@@@@@@@@@@@@@@@@@ 14.5.1 Jaxb2Marshaller
+<beans>
+
+    <bean id="jaxb2Marshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+        <property name="classesToBeBound">
+            <list>
+                <value>org.springframework.oxm.jaxb.Flight</value>
+                <value>org.springframework.oxm.jaxb.Flights</value>                
+            </list>
+        </property>
+        <property name="schema" value="classpath:org/springframework/oxm/schema.xsd"/>
+    </bean>
+    ...
+
+</beans>
+
+################################   Castor ###########################################
+Castor XML mapping is an open source XML binding framework. It allows you to transform the data contained in a java object model into/from an XML document. By default, it does not require any further configuration,
+ though a mapping file can be used to have more control over the behavior of Castor.
+ 
+ As with JAXB, the CastorMarshaller implements both the Marshaller and Unmarshaller interface. It can be wired up as follows: 
+ <beans>
+
+    <bean id="castorMarshaller" class="org.springframework.oxm.castor.CastorMarshaller" />
+    ...
+
+</beans>
+
+##################################      XMLBeans     ################################# 
+ XMLBeans is an XML binding tool that has full XML Schema support, and offers full XML Infoset fidelity. 
+ It takes a different approach to that of most other O/X mapping frameworks, in that all classes that are generated from an XML Schema are all derived from XmlObject, and contain XML binding information in them.
+ 
+ 14.7.1 XmlBeansMarshalle
+  The XmlBeansMarshaller implements both the Marshaller and Unmarshaller interfaces. It can be configured as follows:
+
+<beans>
+
+    <bean id="xmlBeansMarshaller" class="org.springframework.oxm.xmlbeans.XmlBeansMarshaller" />
+    ...
+
+</beans>
+
+###############################   JiBX  #################################
+
+############################    XStream #################################
+
+
+ XStream is a simple library to serialize objects to XML and back again. It does not require any mapping, and generates clean XML.
+
+For more information on XStream, refer to the XStream web site. The Spring integration classes reside in the org.springframework.oxm.xstream package.
+14.9.1 XStreamMarshaller
+
+The XStreamMarshaller does not require any configuration, and can be configured in an application context directly. To further customize the XML, you can set an alias map, which consists of string aliases mapped to classes:
+
+<beans>
+
+    <bean id="xstreamMarshaller" class="org.springframework.oxm.xstream.XStreamMarshaller">
+        <property name="aliases">
+            <props>
+                <prop key="Flight">org.springframework.oxm.xstream.Flight</prop>
+            </props>
+        </property>
+    </bean>
+    ...
+
+</beans>
+
+
+
+
+

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping package="com.wakaleo.articles.caching.businessobjects">
+
+    <class name="Airport" table="AIRPORT" dynamic-update="true">
+		<meta attribute="implement-equals">true</meta>    
+		<cache usage="read-only"/>
+
+        <id name="id" type="long" unsaved-value="null" >
+            <column name="ap_id" not-null="true"/>
+            <generator class="increment"/>
+        </id>
+
+	   <property column="ap_name" name="name" type="string"/>
+
+    </class>
+
+</hibernate-mapping>

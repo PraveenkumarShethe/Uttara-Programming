@@ -1,0 +1,116 @@
+package com.tecnomen.httpclient;
+
+import java.io.IOException;
+import java.util.Iterator;
+
+import net.sf.json.JSONObject;
+
+import org.apache.commons.httpclient.HttpClient;
+import org.apache.commons.httpclient.HttpConnectionManager;
+import org.apache.commons.httpclient.HttpException;
+import org.apache.commons.httpclient.MultiThreadedHttpConnectionManager;
+import org.apache.commons.httpclient.NameValuePair;
+import org.apache.commons.httpclient.methods.PostMethod;
+import org.apache.commons.httpclient.params.HttpConnectionManagerParams;
+
+public class LoginLoadTest extends LoadTest {
+
+	private String sigInfoJson;
+
+	private NameValuePair[] reqParams;
+
+	public String getSigInfoJson() {
+		return sigInfoJson;
+	}
+
+	public void setSigInfoJson(String sigInfoJson) {
+		this.sigInfoJson = sigInfoJson;
+		this.setReqParams(addSigParamTpHttpRequest(sigInfoJson));
+	}
+
+	public NameValuePair[] addSigParamTpHttpRequest(String sigInfoJson) {
+		JSONObject sigObj = new JSONObject(sigInfoJson);
+		Iterator<String> keys = sigObj.keys();
+		NameValuePair[] nvps = new NameValuePair[sigObj.length()];
+		int i = 0;
+		while (keys.hasNext()) {
+			String key = keys.next();
+			nvps[i] = new NameValuePair(key, sigObj.optString(key, ""));
+			i++;
+
+		}
+
+		return nvps;
+	}
+
+	public NameValuePair[] getReqParams() {
+		return reqParams;
+	}
+
+	public void setReqParams(NameValuePair[] reqParams) {
+		this.reqParams = reqParams;
+	}
+
+	public void runSimpleLoginLoadTest() {
+		HttpClient httpClient = getHttpClient();
+
+		// RequestEntity re = new StringRequestEntity(raw_body, "text/xml",
+		// "UTF-16");
+
+		try {
+			
+				PostMethod postMethod = new PostMethod(getAsvip() + "mas/login");
+				postMethod.addParameters(getReqParams());
+				int statuscode = httpClient.executeMethod(postMethod);
+				byte[] responseBody = postMethod.getResponseBody();
+				postMethod.releaseConnection();
+				//System.out.println(statuscode + " LOGIN   RESPONSE  ---- "+ new String(responseBody));
+				
+				
+				postMethod = new PostMethod(getAsvip() + "mas/logout");
+				statuscode = httpClient.executeMethod(postMethod);
+				responseBody = postMethod.getResponseBody();
+			//	System.out.println(statuscode + "  LOGOUT  RESPONSE  ---- "+ new String(responseBody));
+				postMethod.releaseConnection();
+			
+
+		} catch (HttpException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	public HttpClient getHttpClient() {
+		HttpConnectionManagerParams params = new HttpConnectionManagerParams();
+		HttpConnectionManager manager = new MultiThreadedHttpConnectionManager();
+		manager.setParams(params);
+		return new HttpClient(manager);
+
+	}
+
+	public static void main(String[] args) {
+		System.out.println("Start ");
+		
+		long startTime=System.currentTimeMillis();
+		LoginLoadTest loginLoadTest = new LoginLoadTest();
+	//	String sigInfoJson = "{\"local.na\":\"4\",\"redirect[1].uri\":\"tel:4112341234\",\"protocol.name\":\"SIP\",\"redirect[1].na\":\"4\",\"tecnomen.video\":\"false\",\"remote.na\":\"4\",\"remote.uri\":\"tel:222222\",\"redirect[1].np\":\"1\",\"remote.si\":\"3\",\"redirectinfo.indicator\":\"6\",\"redirect[1].reason\":\"4\",\"redirectinfo.reason\":\"6\",\"local.pi\":\"0\",\"local.np\":\"0\",\"remote.pi\":\"0\",\"redirect[1].si\":\"3\",\"local.uri\":\"tel:678\",\"remote.np\":\"1\",\"redirectinfo.count\":\"1\",\"redirect[1].qi\":\"0\",\"redirect[1].pi\":\"0\"}";
+		//loginLoadTest.setSigInfoJson(sigInfoJson);
+		for (int i = 0; i < 1; i++) {
+			long currentTime=System.currentTimeMillis();
+			String sigInfoJson = "{\"local.na\":\"4\",\"redirect[1].uri\":\"tel:411483\",\"protocol.name\":\"SIP\",\"redirect[1].na\":\"4\",\"tecnomen.video\":\"false\",\"remote.na\":\"4\",\"remote.uri\":\"tel:222222"+i+"\",\"redirect[1].np\":\"1\",\"remote.si\":\"3\",\"redirectinfo.indicator\":\"6\",\"redirect[1].reason\":\"4\",\"redirectinfo.reason\":\"6\",\"local.pi\":\"0\",\"local.np\":\"0\",\"remote.pi\":\"0\",\"redirect[1].si\":\"3\",\"local.uri\":\"tel:678\",\"remote.np\":\"1\",\"redirectinfo.count\":\"1\",\"redirect[1].qi\":\"0\",\"redirect[1].pi\":\"0\"}";
+			loginLoadTest.setSigInfoJson(sigInfoJson);
+			
+			loginLoadTest.runSimpleLoginLoadTest();
+			//System.out.println("Time Taken  "+(System.currentTimeMillis()-currentTime));
+		}
+		long endTime=System.currentTimeMillis();
+		
+		System.out.println("Total Time for    "+(endTime-startTime));
+
+	}
+
+}

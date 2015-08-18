@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="personFactory" class="com.manju.spring.bean.PersonFactory"
+		factory-method="getInstance" />
+
+	<bean id="john" factory-bean="personFactory" factory-method="getJohn" />
+
+	<!-- <bean id="joy" class="com.manju.spring.bean.Person" factory-bean="personFactory" 
+		factory-method="getJoy" /> -->
+
+	<bean id="joy" factory-bean="personFactory" factory-method="getJoy" />
+
+	<bean id="person" factory-bean="personFactory" factory-method="getPerson">
+		<constructor-arg index="2" value="Manju" />
+		<constructor-arg index="1" value="Two" />
+	</bean>
+
+
+</beans>

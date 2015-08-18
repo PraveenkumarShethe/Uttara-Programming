@@ -1,0 +1,36 @@
+1) Java Generics are Language Feature that allow for definition and Generic Types and Generic Method.
+
+2) Generics are for : Implementation of one generic class that can be instantiated for variety of 
+	types.
+
+	#######################################################################
+	
+Benefits of Java Generics.
+
+1) Early error Detection at compile time.
+
+3) All types except enum , exception and anonymous inner classes can be generic.
+
+1) Concrete Instantiation (ex : new Pair<String , String>() here we have concrete class as type parameter while instantiating so called Concrete Ins)
+
+2) Wild Card Instantiation : Instantiation of Generic type with Out Concrete Type is called Wild Card Instantiation.(new Pair<?,?>());
+	? denotes not a one type its a family of types or all types.
+	ex
+	 1) Pair<?,String> p1=new Pair<String,String>();
+	 2) p1=new Pair<Integer,String>();
+    
+    A generic type without type argument is called raw type and is only allowed for reason of compatibility with non-generic code.
+    
+3) TYPE ERASURE : The Compiler translates generic and parameterized type to raw type this technique is called type erasure.
+
+
+4) UNBOUNDED wild card parameterized type.
+	An instantiation of a generic type where all type arguments are unbounded wild card "?"
+	
+5) What is the difference between UNBOUNDED wild card parameterized type and raw type.
+	Compiler issue error message for UNBOUNDED wild card type and only unchecked warning for raw type.
+	
+Generic are nothing but parameterized types , Generics helps us to Create a single class  to operate on multiple data types.
+A Class , Interface or method that operates on a parameterized type is called as Generic Classes / interface / method.
+Generics works on objects not an primitive types. 
+

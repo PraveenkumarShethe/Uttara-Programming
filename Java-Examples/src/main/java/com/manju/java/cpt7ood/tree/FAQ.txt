@@ -1,0 +1,8 @@
+Trees : Non Linear Data Structure.
+
+Tree : is a set of nodes storing elements such that the nodes have parent child relationship 
+Sibling : if two nodes have same parent then its called siblings.
+External : if node v don't have children's then it called external node.
+Internal : if node v have children's then its called internal node. 
+
+Position : called as nodes.

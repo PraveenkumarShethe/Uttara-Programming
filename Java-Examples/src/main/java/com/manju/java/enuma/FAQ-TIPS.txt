@@ -1,0 +1,26 @@
+1 )  What is enum
+  	 *	enum is special kind of classes in java and always extends java.lang.Enum s class, enums used to define set related constants.
+  	 * it was officially released in java 1.5
+  	 * All enum types in java are Singleton by default.	
+  		
+  		
+2) How enum constructor can be used.
+	* By default, enums doesn't require you to give constructor definition and their default values always represented by strings used in declaration.
+	* Though you can give define your own constructor to initialize the state of enum types.
+	
+3) How to use template methods.
+4) How to do Reverse Look up in enums.
+  	
+ Collecting key notes about enum
+
+* enums are implicitly final subclasses of java.lang.Enum
+* if an enum is a member of a class, it’s implicitly static
+* new can never be used with an enum, even within the enum type itself
+* name and valueOf simply use the text of the enum constants, while toString may be overridden to provide any content, if desired
+for enum constants, equals and == amount to the same thing, and can be used interchangeably
+
+* enum constants are implicitly public static final
+* the order of appearance of enum constants is called their “natural order”, and defines the order used by other items as well : compareTo, iteration order of values , EnumSet, EnumSet.range.
+* Constructors for an enum type should be declared as private. The compiler allows non private declares for constructors, but this seems misleading to the reader, since new can never be used with enum types.
+* Since these enumeration instances are all effectively singletons, they can be compared for equality using identity (“==”).
+* you can use Enum in Java inside Switch statement like int or char primitive data type

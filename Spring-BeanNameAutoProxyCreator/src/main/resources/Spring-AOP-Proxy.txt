@@ -1,0 +1,30 @@
+Spring AOP proxy can be created by 3 ways.
+
+1) By Using ProxyFactoryBean
+2) By using BeanNameAutoProxyCreator
+3) By using DefaultAdvisorAutoProxyCreator
+
+<tx:advice id="txMaju" transaction-manager="txManager">
+    <tx:attributes>
+     <tx:method name="get*"  
+     		read-only="true" rollback-for="Exception"
+     		no-rollback-for="NoException" 
+     		propogation="NEVER"
+     		isolation="DEFAULT" />
+     
+     <tx:method name="update"/>
+     <tx:attributes/>
+    </tx:advice>
+    
+ <aop:config>
+  <aop:aspect id="manju" ref="beanName">
+   <aop:poincut id="ssss" expression="execution (" ")"/>
+   <aop:after pointcut-ref="if" method="adivese method name"/>
+   <aop:advisor adviser-ref="" pointcut-ref=""/>
+  </aspect>
+ </aconfig> 
+   
+    
+     
+     
+     		

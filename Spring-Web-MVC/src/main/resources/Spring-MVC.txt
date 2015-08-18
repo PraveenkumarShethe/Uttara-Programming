@@ -1,0 +1,28 @@
+##################### Handler Mapping #################################
+
+1) SimpleUrlHandlerMapping
+2) BeanNameUrlHandlerMapping
+3) 
+
+####################### View Resolvers ##############################
+
+1) XmlViewResolver
+2) ResourceBundleViewResolver
+3) UrlBasedViewResolver
+4) InternalResourceViewResolver
+5) VelocityViewResolver / FreeMarkerViewResolve
+
+###################### Spring's multipart (fileupload) support ####################
+
+1) MultiPartResolver
+
+<bean id="multipartResolver"
+    class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+
+    <!-- one of the properties available; the maximum file size in bytes -->
+    <property name="maxUploadSize" value="100000"/>
+</bean>
+
+
+###################### Flash Attributes ##########################
+RedirectAttrbutes

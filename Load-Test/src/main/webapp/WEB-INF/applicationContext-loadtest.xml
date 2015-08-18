@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="absLoginTest" class="com.tecnomen.ngm.loadtest.AbstractLoginLoadTestParams" abstract="true">
+		<property name="asvip" value="http://as-vip:8080/"/>
+		<property name="noExecutions" value="2"/>
+		<property name="sigParams" value='{"redirect[1].uri":"tel:412011","remote.uri":"tel:123","local.na":"4","protocol.name":"SIP","redirect[1].na":"4","tecnomen.video":"false","remote.na":"4","redirect[1].np":"1","remote.si":"3","redirectinfo.indicator":"6","redirect[1].reason":"4","redirectinfo.reason":"6","local.pi":"0","local.np":"0","remote.pi":"0","redirect[1].si":"3","local.uri":"tel:678","remote.np":"1","redirectinfo.count":"1","redirect[1].qi":"0","redirect[1].pi":"0"}'/>
+		<property name="minThreads" value="10"/>		
+		<property name="maxThreads" value="20 "/>
+		<property name="requestCount" value="20"/>
+		
+	</bean>
+	
+	
+    <bean id="loginLoadtest" class="com.tecnomen.ngm.loadtest.LoginLoadTestMBean" parent="absLoginTest">
+		<property name="clientProvider" ref="clientProvider">
+			
+	</property>
+        
+    </bean>
+
+	 <bean id="clientProvider" class="com.tecnomen.ngm.loadtest.HttpClientProvider">
+        <property name="connectionTimeOut" value="500"/>
+        <property name="soTimeOut" value="1500"/>
+        <property name="maxConnections" value="200"/>
+        <property name="method" value="POST" />                                       
+    </bean>
+	
+	
+
+       <bean id="exporter" class="org.springframework.jmx.export.MBeanExporter">
+        <property name="assembler" ref="assembler"/>
+        <property name="namingStrategy" ref="namingStrategy"/>
+        <property name="autodetect" value="true"/>
+    </bean>
+
+    <bean id="jmxAttributeSource"
+          class="org.springframework.jmx.export.annotation.AnnotationJmxAttributeSource"/>
+
+    <!-- will create management interface using annotation metadata -->
+    <bean id="assembler"
+          class="org.springframework.jmx.export.assembler.MetadataMBeanInfoAssembler">
+        <property name="attributeSource" ref="jmxAttributeSource"/>
+    </bean>
+
+    <!-- will pick up the ObjectName from the annotation -->
+    <bean id="namingStrategy"
+          class="org.springframework.jmx.export.naming.MetadataNamingStrategy">
+        <property name="attributeSource" ref="jmxAttributeSource"/>
+    </bean>
+</beans>

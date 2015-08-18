@@ -1,0 +1,16 @@
+Race Condition : Race Condition occurs when two or more thread try to access same resources , based on under lying os threads may get different results
+				 such cases nothing but race condition.
+				 
+Starvation :   Starvation is nothing but one thread it keep on trying to access a resource but it not getting the resource is called Starvation.
+	 Starvation describes a situation where a thread is unable to gain regular access to shared resources and is unable to make progress. 
+	 This happens when shared resources are made unavailable for long periods by "greedy" threads. For example, suppose an object provides a synchronized method that often takes a long time to return.
+	 If one thread invokes this method frequently, other threads that also need frequent synchronized access to the same object will often be blocked.
+
+Deadlock : When tow or more  threads waiting on a condition that cannot be satisfied . Deadlock most often occurs when two or more threads are each waiting
+			for the others do some thing.
+			
+Reentrant : The Java runtime system allows a thread to re-acquire a monitor that it already holds because Java monitors are reentrant. 
+			Reentrant monitors are important because they eliminate the possibility of a single thread deadlocking itself on a monitor that it already holds. 
+			
+ 
+				

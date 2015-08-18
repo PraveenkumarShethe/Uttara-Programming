@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 1 elements(s) to &apos;Core-XML-XSLT/src/main/resources&apos;&#x0D;&#x0A;- Original project: &apos;Spring-Batch-Hello-World&apos;&#x0D;&#x0A;- Destination element: &apos;Core-XML-XSLT/src/main/resources&apos;&#x0D;&#x0A;- Original element: &apos;log4j.properties&apos;" description="Copy file" destination="/src\/main\/resources" element1="src/main/resources/log4j.properties" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" log="src/main/resources/log4j.properties&#x09;true&#x09;false" policy="org.eclipse.jdt.ui.copyResources" stamp="1363954045014" units="0" version="1.0"/>
+</session>

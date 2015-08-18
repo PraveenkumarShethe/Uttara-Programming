@@ -1,0 +1,2 @@
+Thread Pools are useful when you need to limit the number of threads running in your application at the same time. 
+There is a performance overhead associated with starting a new thread, and each thread is also allocated some memory for its stack etc.

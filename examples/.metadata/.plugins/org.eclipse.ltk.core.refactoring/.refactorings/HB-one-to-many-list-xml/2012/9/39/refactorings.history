@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 1 elements(s) to &apos;HB-one-to-many-list-xml/src/main/java/net.viralpatel.hibernate&apos;&#x0D;&#x0A;- Original project: &apos;HB-one-to-many-list-xml&apos;&#x0D;&#x0A;- Destination element: &apos;HB-one-to-many-list-xml/src/main/java/net.viralpatel.hibernate&apos;&#x0D;&#x0A;- Original element: &apos;hibernate.cfg.xml&apos;" description="Copy file" destination="/src\/main\/java&lt;net.viralpatel.hibernate" element1="src/main/resources/hibernate.cfg.xml" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" log="src/main/resources/hibernate.cfg.xml&#x09;true&#x09;false" policy="org.eclipse.jdt.ui.copyResources" stamp="1348839584446" units="0" version="1.0"/>
+</session>

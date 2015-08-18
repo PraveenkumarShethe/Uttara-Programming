@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="net.viralpatel.hibernate">
+
+    <class name="Department12M" table="DEPARTMENT12M">
+
+ 		<id name="departmentId" type="java.lang.Long" column="DEPARTMENT_ID">
+ 			<generator class="native" />
+ 		</id>
+		
+        <property name="departmentName" column="DEPT_NAME"/>
+
+		<list name="employees" table="employee12m" 
+				inverse="false" cascade="all"  lazy="extra">
+            <key column="department_id" />
+			 <index column="idx"/>
+		   <!-- <list-index column="idx" /> -->
+            <one-to-many class="net.viralpatel.hibernate.Employee12M" />
+        </list>
+	</class>
+</hibernate-mapping>
+<!-- fetch="subselect" lazy="false"
+Hibernate: 
+    /* 
+from
+    Department12M */ select
+        department0_.DEPARTMENT_ID as DEPARTMENT1_1_,
+        department0_.DEPT_NAME as DEPT2_1_ 
+    from
+        DEPARTMENT12M department0_
+Hibernate: 
+    /* load one-to-many net.viralpatel.hibernate.Department12M.employees */ select
+        employees0_.department_id as department6_1_,
+        employees0_.EMPLOYEE_ID as EMPLOYEE1_1_,
+        employees0_.idx as idx1_,
+        employees0_.EMPLOYEE_ID as EMPLOYEE1_0_0_,
+        employees0_.firstname as firstname0_0_,
+        employees0_.lastname as lastname0_0_,
+        employees0_.birth_date as birth4_0_0_,
+        employees0_.cell_phone as cell5_0_0_,
+        employees0_.department_id as department6_0_0_ 
+    from
+        EMPLOYEE12M employees0_ 
+    where
+        employees0_.department_id in (
+            select
+                department0_.DEPARTMENT_ID 
+            from
+                DEPARTMENT12M department0_
+        )
+
+
+-->
+<!-- fetch="join"
+	
+	Hibernate: 
+    /* load net.viralpatel.hibernate.Department12M */ select
+        department0_.DEPARTMENT_ID as DEPARTMENT1_1_1_,
+        department0_.DEPT_NAME as DEPT2_1_1_,
+        employees1_.department_id as department6_3_,
+        employees1_.EMPLOYEE_ID as EMPLOYEE1_3_,
+        employees1_.idx as idx3_,
+        employees1_.EMPLOYEE_ID as EMPLOYEE1_0_0_,
+        employees1_.firstname as firstname0_0_,
+        employees1_.lastname as lastname0_0_,
+        employees1_.birth_date as birth4_0_0_,
+        employees1_.cell_phone as cell5_0_0_,
+        employees1_.department_id as department6_0_0_ 
+    from
+        DEPARTMENT12M department0_ 
+    left outer join
+        EMPLOYEE12M employees1_ 
+            on department0_.DEPARTMENT_ID=employees1_.department_id 
+    where
+        department0_.DEPARTMENT_ID=?
+	
+	
+	-->
+
+
+<!--
+	
+	A <list> is an indexed collection where the index will also be persisted.
+	 That means we can retain the order of the list when it is retrieved. 
+	It differs from <bag> for it persists the element Index while a <bag> does not. 
+	The corresponding type of a <list> in Java is java.util.List.
+
+	In the above hibernate mapping xml file, note that we have added list tag to map a list of employees with department.
+	 Also a new index column “idx” is defined which will store the index of records. Note that inverse=”false” is specified in 
+	the mapping which makes Department as the relationship owner. Thus when department object is saved, it automatically saves the Employees too. 
+	This is required so that Department can manage the index values for employees. The department_id is given as key column.
+
+
+-->

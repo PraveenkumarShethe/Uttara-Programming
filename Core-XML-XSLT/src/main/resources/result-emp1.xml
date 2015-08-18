@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Emp.xml --><ROWSET>
+  <ROW num="1">
+    <EMPNO>1483</EMPNO>
+    <ENAME>Manju</ENAME>
+   </ROW>
+   
+   <ROW num="3">
+    <EMPNO>1485</EMPNO>
+    <ENAME>Chaitu</ENAME>
+   </ROW>
+   <ROW num="4">
+    <EMPNO>1486</EMPNO>
+    <ENAME>Chandra</ENAME>
+   </ROW>
+	
+	<!-- END OF WHAT -->
+</ROWSET>

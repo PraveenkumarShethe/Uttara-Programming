@@ -1,0 +1,15 @@
+Queue : This is one more data structure , this is same as stack but it works like FIRST IN FIRST OUT Manner (FIFO).
+ rear : entering point of element is queue.
+ front : removing elements from rear.
+ 
+insert operation is designed specifically for use with capacity-restricted Queue implementations; in most implementations, insert operations cannot fail.
+
+	        Throws exception 						Returns special value
+Insert 		add(e) 										offer(e)
+Remove 		remove() 									poll()
+Examine 	element() 									peek()
+
+Capacity Restricted Queues :  Initial size has been set while intializing Queue 
+
+
+ 

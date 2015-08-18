@@ -1,0 +1,45 @@
+################ Built-in Resource implementations ###############3
+1) UrlResource
+  Resource resource =appContext.getResource("classpath:com/manju/spring/common/testing.txt")
+  
+ 2) ClassPathResource
+ 	 Resource resource =appContext.getResource("classpath:com/manju/spring/common/testing.txt")
+ 	 
+ 3) FileSystemResource : 
+ 		Resource resource = cust.getResource("url:http://www.google.com");
+ 
+ 4) ServletContextResource : 
+ 
+ 5) InputStreamResource
+ 
+ 6) ByteArrayResource
+ 
+ 
+ ############################  ResourceLoader ###################################
+ 
+ The ResourceLoader interface is meant to be implemented by objects that can return (i.e. load) Resource instances.
+ All application contexts implement the ResourceLoader interface, and therefore all application contexts may be used to obtain Resource instances.
+ 
+ If programmer wants to use getResource from  bean Object then this bean should implement ResourceLoder interface .
+ 
+ #######################  The ResourceLoaderAware interface #################################
+ 
+ The ResourceLoaderAware interface is a special marker interface, identifying objects that expect to be provided with a ResourceLoader reference.
+
+public interface ResourceLoaderAware {
+
+   void setResourceLoader(ResourceLoader resourceLoader);
+}
+
+When a class implements ResourceLoaderAware and is deployed into an application context (as a Spring-managed bean), 
+it is recognized as ResourceLoaderAware by the application context. The application context will then invoke the setResourceLoader(ResourceLoader), 
+supplying itself as the argument (remember, all application contexts in Spring implement the ResourceLoader interface).
+
+
+########################### 4.6 Resources as dependencies  #######################################
+
+
+
+
+ 
+ 

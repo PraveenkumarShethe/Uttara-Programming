@@ -1,0 +1,112 @@
+ @Required
+ @Autowired and @Inject
+ @Qualifier
+ 
+ [Tip]	Tip
+
+If you intend to express annotation-driven injection by name, do not primarily use @Autowired, even if is technically capable of referring to a bean name through @Qualifier values. Instead, use the JSR-250 @Resource annotation, which is semantically defined to identify a specific target component by its unique name, with the declared type being irrelevant for the matching process.
+
+As a specific consequence of this semantic difference, beans that are themselves defined as a collection or map type cannot be injected through @Autowired, because type matching is not properly applicable to them. Use @Resource for such beans, referring to the specific collection or map bean by unique name.
+
+@Autowired applies to fields, constructors, and multi-argument methods, allowing for narrowing through qualifier annotations at the parameter level. By contrast, @Resource is supported only for fields and bean property setter methods with a single argument. As a consequence, stick with qualifiers if your injection target is a constructor or a multi-argument method.
+
+@Resource : Spring also supports injection using the JSR-250 @Resource annotation on fields or bean property setter methods.
+			@Resource takes a name attribute, and by default Spring interprets that value as the bean name to be injected. 
+			
+@PostConstruct and @PreDestroy :
+
+@Component :
+@Service :
+@Controller :
+@Repository :
+
+
+ ####################  Using filters to customize scanning #####################################
+ 
+ By default, classes annotated with @Component, @Repository, @Service, @Controller, or a custom annotation that itself is annotated with @Component are the only detected candidate components. However, you can modify and extend this behavior simply by applying custom filters. Add them as include-filter or exclude-filter sub-elements of the component-scan element. Each filter element requires the type and expression attributes. The following table describes the filtering options.
+
+Table 3.5. Filter Types
+Filter Type	Example Expression	Description
+annotation	org.example.SomeAnnotation	An annotation to be present at the type level in target components.
+assignable	org.example.SomeClass	A class (or interface) that the target components are assignable to (extend/implement).
+aspectj	org.example..*Service+	An AspectJ type expression to be matched by the target components.
+regex	org\.example\.Default.*	A regex expression to be matched by the target components class names.
+custom	org.example.MyTypeFilter	A custom implementation of the org.springframework.core.type .TypeFilter interface.
+
+The following example shows the XML configuration ignoring all @Repository annotations and using "stub" repositories instead.
+
+<beans>
+
+   <context:component-scan base-package="org.example">
+      <context:include-filter type="regex" expression=".*Stub.*Repository"/>
+      <context:exclude-filter type="annotation"
+                              expression="org.springframework.stereotype.Repository"/>
+   </context:component-scan>
+
+</beans>
+
+
+##################  Naming autodetected components ##################
+##################  Providing a scope for autodetected components  ########################
+
+
+
+#################  3.11 Java-based container configuration  #############################################
+#################  3.11.1 Basic concepts: @Configuration and @Bean ######################################
+
+nnotating a class with the @Configuration indicates that the class can be used by the Spring IoC container as a source of bean definitions. The simplest possible @Configuration class would read as follows:
+
+@Configuration
+public class AppConfig {
+  @Bean
+  public MyService myService() {
+      return new MyServiceImpl();
+  }
+}
+
+For those more familiar with Spring <beans/> XML, the AppConfig class above would be equivalent to:
+
+<beans>
+  <bean id="myService" class="com.acme.services.MyServiceImpl"/>
+</beans>
+
+################################  Composing Java-based configurations  ##############################################
+##############################  Using the @Import annotation ##############################333
+
+Much as the <import/> element is used within Spring XML files to aid in modularizing configurations, the @Import annotation allows for loading @Bean definitions from another configuration class:
+
+@Configuration
+public class ConfigA {
+  public @Bean A a() { return new A(); }
+}
+
+@Configuration
+@Import(ConfigA.class)
+public class ConfigB {
+  public @Bean B b() { return new B(); }
+}
+
+Now, rather than needing to specify both ConfigA.class and ConfigB.class when instantiating the context, only ConfigB needs to be supplied explicitly:
+
+public static void main(String[] args) {
+  ApplicationContext ctx = new AnnotationConfigApplicationContext(ConfigB.class);
+
+  // now both beans A and B will be available...
+  A a = ctx.getBean(A.class);
+  B b = ctx.getBean(B.class);
+} 
+ 
+ 
+ 
+ Table 3.7. Feature Matrix
+Feature										BeanFactory			ApplicationContext
+
+Bean instantiation/wiring		 				Yes					Yes
+
+Automatic BeanPostProcessor registration		No   				Yes
+
+Automatic BeanFactoryPostProcessor registration No					Yes
+
+Convenient MessageSource access (for i18n)		No					Yes
+
+ApplicationEvent publication					No					Yes

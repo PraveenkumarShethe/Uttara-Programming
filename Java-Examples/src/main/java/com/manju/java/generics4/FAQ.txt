@@ -1,0 +1,12 @@
+Program: What is generics wildcard arguments? Give an example.
+
+Below example exmplains what is wildcard arguments and how it helps us to solve problem. In the example, we have two classes called CompAEmp and CompBEmp extending Emp class. We have a generic class called MyEmployeeUtil, where we have utilities to perform employee functions irrespective of which comapany emp belogns too. This class accepts subclasses of Emp. Incase if we want to compare salaries of two employees, how can we do using MyEmployeeUtil class? U can think that below sample code might work, but it wont work.
+
+
+Because once you create an object of MyEmployeeUtil class, the type argument will be specific to an instance type. So you can compare between only same object types, ie, you can comapare either objects of CompAEmp or CompBEmp, but not between CompAEmp and CompBEmp. To solve this problem, wildcard argument will helps you. Look at below sample code, which can solve your problem. 
+
+So "?" will solve the issue. Look below for complete example.
+
+
+
+http://java2novice.com/java-generics/ 

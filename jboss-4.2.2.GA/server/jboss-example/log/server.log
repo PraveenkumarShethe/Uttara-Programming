@@ -1,0 +1,168 @@
+2013-12-08 13:41:47,817 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] Periodic recovery - first pass <Sun, 8 Dec 2013 13:41:47>
+2013-12-08 13:41:48,708 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] StatusModule: first pass 
+2013-12-08 13:41:48,708 DEBUG [com.arjuna.ats.txoj.logging.txojLoggerI18N] [com.arjuna.ats.internal.txoj.recovery.TORecoveryModule_3] - TORecoveryModule - first pass
+2013-12-08 13:41:48,708 DEBUG [com.arjuna.ats.jta.logging.loggerI18N] [com.arjuna.ats.internal.jta.recovery.info.firstpass] Local XARecoveryModule - first pass
+2013-12-08 13:41:58,722 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] Periodic recovery - second pass <Sun, 8 Dec 2013 13:41:58>
+2013-12-08 13:41:58,722 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] AtomicActionRecoveryModule: Second pass 
+2013-12-08 13:41:58,722 DEBUG [com.arjuna.ats.txoj.logging.txojLoggerI18N] [com.arjuna.ats.internal.txoj.recovery.TORecoveryModule_6] - TORecoveryModule - second pass
+2013-12-08 13:41:58,722 DEBUG [com.arjuna.ats.jta.logging.loggerI18N] [com.arjuna.ats.internal.jta.recovery.info.secondpass] Local XARecoveryModule - second pass
+2013-12-08 13:43:58,728 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] Periodic recovery - first pass <Sun, 8 Dec 2013 13:43:58>
+2013-12-08 13:43:58,728 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] StatusModule: first pass 
+2013-12-08 13:43:58,728 DEBUG [com.arjuna.ats.txoj.logging.txojLoggerI18N] [com.arjuna.ats.internal.txoj.recovery.TORecoveryModule_3] - TORecoveryModule - first pass
+2013-12-08 13:43:58,728 DEBUG [com.arjuna.ats.jta.logging.loggerI18N] [com.arjuna.ats.internal.jta.recovery.info.firstpass] Local XARecoveryModule - first pass
+2013-12-08 13:44:08,729 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] Periodic recovery - second pass <Sun, 8 Dec 2013 13:44:08>
+2013-12-08 13:44:08,729 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] AtomicActionRecoveryModule: Second pass 
+2013-12-08 13:44:08,729 DEBUG [com.arjuna.ats.txoj.logging.txojLoggerI18N] [com.arjuna.ats.internal.txoj.recovery.TORecoveryModule_6] - TORecoveryModule - second pass
+2013-12-08 13:44:08,729 DEBUG [com.arjuna.ats.jta.logging.loggerI18N] [com.arjuna.ats.internal.jta.recovery.info.secondpass] Local XARecoveryModule - second pass
+2013-12-08 13:46:08,730 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] Periodic recovery - first pass <Sun, 8 Dec 2013 13:46:08>
+2013-12-08 13:46:08,730 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] StatusModule: first pass 
+2013-12-08 13:46:08,731 DEBUG [com.arjuna.ats.txoj.logging.txojLoggerI18N] [com.arjuna.ats.internal.txoj.recovery.TORecoveryModule_3] - TORecoveryModule - first pass
+2013-12-08 13:46:08,732 DEBUG [com.arjuna.ats.jta.logging.loggerI18N] [com.arjuna.ats.internal.jta.recovery.info.firstpass] Local XARecoveryModule - first pass
+2013-12-08 13:46:18,732 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] Periodic recovery - second pass <Sun, 8 Dec 2013 13:46:18>
+2013-12-08 13:46:18,732 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] AtomicActionRecoveryModule: Second pass 
+2013-12-08 13:46:18,732 DEBUG [com.arjuna.ats.txoj.logging.txojLoggerI18N] [com.arjuna.ats.internal.txoj.recovery.TORecoveryModule_6] - TORecoveryModule - second pass
+2013-12-08 13:46:18,732 DEBUG [com.arjuna.ats.jta.logging.loggerI18N] [com.arjuna.ats.internal.jta.recovery.info.secondpass] Local XARecoveryModule - second pass
+2013-12-08 13:48:18,733 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] Periodic recovery - first pass <Sun, 8 Dec 2013 13:48:18>
+2013-12-08 13:48:18,733 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] StatusModule: first pass 
+2013-12-08 13:48:18,733 DEBUG [com.arjuna.ats.txoj.logging.txojLoggerI18N] [com.arjuna.ats.internal.txoj.recovery.TORecoveryModule_3] - TORecoveryModule - first pass
+2013-12-08 13:48:18,734 DEBUG [com.arjuna.ats.jta.logging.loggerI18N] [com.arjuna.ats.internal.jta.recovery.info.firstpass] Local XARecoveryModule - first pass
+2013-12-08 13:48:28,735 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] Periodic recovery - second pass <Sun, 8 Dec 2013 13:48:28>
+2013-12-08 13:48:28,735 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] AtomicActionRecoveryModule: Second pass 
+2013-12-08 13:48:28,735 DEBUG [com.arjuna.ats.txoj.logging.txojLoggerI18N] [com.arjuna.ats.internal.txoj.recovery.TORecoveryModule_6] - TORecoveryModule - second pass
+2013-12-08 13:48:28,735 DEBUG [com.arjuna.ats.jta.logging.loggerI18N] [com.arjuna.ats.internal.jta.recovery.info.secondpass] Local XARecoveryModule - second pass
+2013-12-08 13:50:28,735 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] Periodic recovery - first pass <Sun, 8 Dec 2013 13:50:28>
+2013-12-08 13:50:28,735 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] StatusModule: first pass 
+2013-12-08 13:50:28,736 DEBUG [com.arjuna.ats.txoj.logging.txojLoggerI18N] [com.arjuna.ats.internal.txoj.recovery.TORecoveryModule_3] - TORecoveryModule - first pass
+2013-12-08 13:50:28,737 DEBUG [com.arjuna.ats.jta.logging.loggerI18N] [com.arjuna.ats.internal.jta.recovery.info.firstpass] Local XARecoveryModule - first pass
+2013-12-08 13:50:38,738 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] Periodic recovery - second pass <Sun, 8 Dec 2013 13:50:38>
+2013-12-08 13:50:38,738 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] AtomicActionRecoveryModule: Second pass 
+2013-12-08 13:50:38,738 DEBUG [com.arjuna.ats.txoj.logging.txojLoggerI18N] [com.arjuna.ats.internal.txoj.recovery.TORecoveryModule_6] - TORecoveryModule - second pass
+2013-12-08 13:50:38,738 DEBUG [com.arjuna.ats.jta.logging.loggerI18N] [com.arjuna.ats.internal.jta.recovery.info.secondpass] Local XARecoveryModule - second pass
+2013-12-08 13:52:38,739 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] Periodic recovery - first pass <Sun, 8 Dec 2013 13:52:38>
+2013-12-08 13:52:38,739 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] StatusModule: first pass 
+2013-12-08 13:52:38,740 DEBUG [com.arjuna.ats.txoj.logging.txojLoggerI18N] [com.arjuna.ats.internal.txoj.recovery.TORecoveryModule_3] - TORecoveryModule - first pass
+2013-12-08 13:52:38,741 DEBUG [com.arjuna.ats.jta.logging.loggerI18N] [com.arjuna.ats.internal.jta.recovery.info.firstpass] Local XARecoveryModule - first pass
+2013-12-08 13:52:48,742 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] Periodic recovery - second pass <Sun, 8 Dec 2013 13:52:48>
+2013-12-08 13:52:48,742 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] AtomicActionRecoveryModule: Second pass 
+2013-12-08 13:52:48,742 DEBUG [com.arjuna.ats.txoj.logging.txojLoggerI18N] [com.arjuna.ats.internal.txoj.recovery.TORecoveryModule_6] - TORecoveryModule - second pass
+2013-12-08 13:52:48,742 DEBUG [com.arjuna.ats.jta.logging.loggerI18N] [com.arjuna.ats.internal.jta.recovery.info.secondpass] Local XARecoveryModule - second pass
+2013-12-08 13:54:48,742 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] Periodic recovery - first pass <Sun, 8 Dec 2013 13:54:48>
+2013-12-08 13:54:48,742 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] StatusModule: first pass 
+2013-12-08 13:54:48,743 DEBUG [com.arjuna.ats.txoj.logging.txojLoggerI18N] [com.arjuna.ats.internal.txoj.recovery.TORecoveryModule_3] - TORecoveryModule - first pass
+2013-12-08 13:54:48,744 DEBUG [com.arjuna.ats.jta.logging.loggerI18N] [com.arjuna.ats.internal.jta.recovery.info.firstpass] Local XARecoveryModule - first pass
+2013-12-08 13:54:58,744 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] Periodic recovery - second pass <Sun, 8 Dec 2013 13:54:58>
+2013-12-08 13:54:58,744 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] AtomicActionRecoveryModule: Second pass 
+2013-12-08 13:54:58,744 DEBUG [com.arjuna.ats.txoj.logging.txojLoggerI18N] [com.arjuna.ats.internal.txoj.recovery.TORecoveryModule_6] - TORecoveryModule - second pass
+2013-12-08 13:54:58,744 DEBUG [com.arjuna.ats.jta.logging.loggerI18N] [com.arjuna.ats.internal.jta.recovery.info.secondpass] Local XARecoveryModule - second pass
+2013-12-08 13:56:58,744 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] Periodic recovery - first pass <Sun, 8 Dec 2013 13:56:58>
+2013-12-08 13:56:58,744 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] StatusModule: first pass 
+2013-12-08 13:56:58,745 DEBUG [com.arjuna.ats.txoj.logging.txojLoggerI18N] [com.arjuna.ats.internal.txoj.recovery.TORecoveryModule_3] - TORecoveryModule - first pass
+2013-12-08 13:56:58,746 DEBUG [com.arjuna.ats.jta.logging.loggerI18N] [com.arjuna.ats.internal.jta.recovery.info.firstpass] Local XARecoveryModule - first pass
+2013-12-08 13:57:08,984 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] Periodic recovery - second pass <Sun, 8 Dec 2013 13:57:08>
+2013-12-08 13:57:08,984 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] AtomicActionRecoveryModule: Second pass 
+2013-12-08 13:57:08,984 DEBUG [com.arjuna.ats.txoj.logging.txojLoggerI18N] [com.arjuna.ats.internal.txoj.recovery.TORecoveryModule_6] - TORecoveryModule - second pass
+2013-12-08 13:57:08,984 DEBUG [com.arjuna.ats.jta.logging.loggerI18N] [com.arjuna.ats.internal.jta.recovery.info.secondpass] Local XARecoveryModule - second pass
+2013-12-08 13:59:08,984 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] Periodic recovery - first pass <Sun, 8 Dec 2013 13:59:08>
+2013-12-08 13:59:08,984 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] StatusModule: first pass 
+2013-12-08 13:59:08,985 DEBUG [com.arjuna.ats.txoj.logging.txojLoggerI18N] [com.arjuna.ats.internal.txoj.recovery.TORecoveryModule_3] - TORecoveryModule - first pass
+2013-12-08 13:59:08,986 DEBUG [com.arjuna.ats.jta.logging.loggerI18N] [com.arjuna.ats.internal.jta.recovery.info.firstpass] Local XARecoveryModule - first pass
+2013-12-08 13:59:18,987 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] Periodic recovery - second pass <Sun, 8 Dec 2013 13:59:18>
+2013-12-08 13:59:18,987 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] AtomicActionRecoveryModule: Second pass 
+2013-12-08 13:59:18,987 DEBUG [com.arjuna.ats.txoj.logging.txojLoggerI18N] [com.arjuna.ats.internal.txoj.recovery.TORecoveryModule_6] - TORecoveryModule - second pass
+2013-12-08 13:59:18,987 DEBUG [com.arjuna.ats.jta.logging.loggerI18N] [com.arjuna.ats.internal.jta.recovery.info.secondpass] Local XARecoveryModule - second pass
+2013-12-08 14:01:18,988 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] Periodic recovery - first pass <Sun, 8 Dec 2013 14:01:18>
+2013-12-08 14:01:18,988 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] StatusModule: first pass 
+2013-12-08 14:01:18,989 DEBUG [com.arjuna.ats.txoj.logging.txojLoggerI18N] [com.arjuna.ats.internal.txoj.recovery.TORecoveryModule_3] - TORecoveryModule - first pass
+2013-12-08 14:01:18,990 DEBUG [com.arjuna.ats.jta.logging.loggerI18N] [com.arjuna.ats.internal.jta.recovery.info.firstpass] Local XARecoveryModule - first pass
+2013-12-08 14:01:28,990 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] Periodic recovery - second pass <Sun, 8 Dec 2013 14:01:28>
+2013-12-08 14:01:28,990 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] AtomicActionRecoveryModule: Second pass 
+2013-12-08 14:01:28,990 DEBUG [com.arjuna.ats.txoj.logging.txojLoggerI18N] [com.arjuna.ats.internal.txoj.recovery.TORecoveryModule_6] - TORecoveryModule - second pass
+2013-12-08 14:01:28,990 DEBUG [com.arjuna.ats.jta.logging.loggerI18N] [com.arjuna.ats.internal.jta.recovery.info.secondpass] Local XARecoveryModule - second pass
+2013-12-08 14:03:28,991 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] Periodic recovery - first pass <Sun, 8 Dec 2013 14:03:28>
+2013-12-08 14:03:28,991 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] StatusModule: first pass 
+2013-12-08 14:03:28,992 DEBUG [com.arjuna.ats.txoj.logging.txojLoggerI18N] [com.arjuna.ats.internal.txoj.recovery.TORecoveryModule_3] - TORecoveryModule - first pass
+2013-12-08 14:03:28,993 DEBUG [com.arjuna.ats.jta.logging.loggerI18N] [com.arjuna.ats.internal.jta.recovery.info.firstpass] Local XARecoveryModule - first pass
+2013-12-08 14:03:38,994 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] Periodic recovery - second pass <Sun, 8 Dec 2013 14:03:38>
+2013-12-08 14:03:38,994 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] AtomicActionRecoveryModule: Second pass 
+2013-12-08 14:03:38,994 DEBUG [com.arjuna.ats.txoj.logging.txojLoggerI18N] [com.arjuna.ats.internal.txoj.recovery.TORecoveryModule_6] - TORecoveryModule - second pass
+2013-12-08 14:03:38,994 DEBUG [com.arjuna.ats.jta.logging.loggerI18N] [com.arjuna.ats.internal.jta.recovery.info.secondpass] Local XARecoveryModule - second pass
+2013-12-08 14:05:38,994 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] Periodic recovery - first pass <Sun, 8 Dec 2013 14:05:38>
+2013-12-08 14:05:38,994 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] StatusModule: first pass 
+2013-12-08 14:05:38,994 DEBUG [com.arjuna.ats.txoj.logging.txojLoggerI18N] [com.arjuna.ats.internal.txoj.recovery.TORecoveryModule_3] - TORecoveryModule - first pass
+2013-12-08 14:05:38,995 DEBUG [com.arjuna.ats.jta.logging.loggerI18N] [com.arjuna.ats.internal.jta.recovery.info.firstpass] Local XARecoveryModule - first pass
+2013-12-08 14:05:48,995 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] Periodic recovery - second pass <Sun, 8 Dec 2013 14:05:48>
+2013-12-08 14:05:48,995 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] AtomicActionRecoveryModule: Second pass 
+2013-12-08 14:05:48,995 DEBUG [com.arjuna.ats.txoj.logging.txojLoggerI18N] [com.arjuna.ats.internal.txoj.recovery.TORecoveryModule_6] - TORecoveryModule - second pass
+2013-12-08 14:05:48,995 DEBUG [com.arjuna.ats.jta.logging.loggerI18N] [com.arjuna.ats.internal.jta.recovery.info.secondpass] Local XARecoveryModule - second pass
+2013-12-08 14:07:48,995 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] Periodic recovery - first pass <Sun, 8 Dec 2013 14:07:48>
+2013-12-08 14:07:48,995 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] StatusModule: first pass 
+2013-12-08 14:07:48,996 DEBUG [com.arjuna.ats.txoj.logging.txojLoggerI18N] [com.arjuna.ats.internal.txoj.recovery.TORecoveryModule_3] - TORecoveryModule - first pass
+2013-12-08 14:07:48,996 DEBUG [com.arjuna.ats.jta.logging.loggerI18N] [com.arjuna.ats.internal.jta.recovery.info.firstpass] Local XARecoveryModule - first pass
+2013-12-08 14:07:58,998 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] Periodic recovery - second pass <Sun, 8 Dec 2013 14:07:58>
+2013-12-08 14:07:58,998 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] AtomicActionRecoveryModule: Second pass 
+2013-12-08 14:07:58,998 DEBUG [com.arjuna.ats.txoj.logging.txojLoggerI18N] [com.arjuna.ats.internal.txoj.recovery.TORecoveryModule_6] - TORecoveryModule - second pass
+2013-12-08 14:07:58,998 DEBUG [com.arjuna.ats.jta.logging.loggerI18N] [com.arjuna.ats.internal.jta.recovery.info.secondpass] Local XARecoveryModule - second pass
+2013-12-08 14:09:58,998 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] Periodic recovery - first pass <Sun, 8 Dec 2013 14:09:58>
+2013-12-08 14:09:58,998 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] StatusModule: first pass 
+2013-12-08 14:09:58,999 DEBUG [com.arjuna.ats.txoj.logging.txojLoggerI18N] [com.arjuna.ats.internal.txoj.recovery.TORecoveryModule_3] - TORecoveryModule - first pass
+2013-12-08 14:09:58,999 DEBUG [com.arjuna.ats.jta.logging.loggerI18N] [com.arjuna.ats.internal.jta.recovery.info.firstpass] Local XARecoveryModule - first pass
+2013-12-08 14:10:09,001 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] Periodic recovery - second pass <Sun, 8 Dec 2013 14:10:09>
+2013-12-08 14:10:09,001 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] AtomicActionRecoveryModule: Second pass 
+2013-12-08 14:10:09,001 DEBUG [com.arjuna.ats.txoj.logging.txojLoggerI18N] [com.arjuna.ats.internal.txoj.recovery.TORecoveryModule_6] - TORecoveryModule - second pass
+2013-12-08 14:10:09,001 DEBUG [com.arjuna.ats.jta.logging.loggerI18N] [com.arjuna.ats.internal.jta.recovery.info.secondpass] Local XARecoveryModule - second pass
+2013-12-08 14:12:09,002 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] Periodic recovery - first pass <Sun, 8 Dec 2013 14:12:09>
+2013-12-08 14:12:09,002 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] StatusModule: first pass 
+2013-12-08 14:12:09,003 DEBUG [com.arjuna.ats.txoj.logging.txojLoggerI18N] [com.arjuna.ats.internal.txoj.recovery.TORecoveryModule_3] - TORecoveryModule - first pass
+2013-12-08 14:12:09,004 DEBUG [com.arjuna.ats.jta.logging.loggerI18N] [com.arjuna.ats.internal.jta.recovery.info.firstpass] Local XARecoveryModule - first pass
+2013-12-08 14:12:19,004 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] Periodic recovery - second pass <Sun, 8 Dec 2013 14:12:19>
+2013-12-08 14:12:19,004 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] AtomicActionRecoveryModule: Second pass 
+2013-12-08 14:12:19,004 DEBUG [com.arjuna.ats.txoj.logging.txojLoggerI18N] [com.arjuna.ats.internal.txoj.recovery.TORecoveryModule_6] - TORecoveryModule - second pass
+2013-12-08 14:12:19,004 DEBUG [com.arjuna.ats.jta.logging.loggerI18N] [com.arjuna.ats.internal.jta.recovery.info.secondpass] Local XARecoveryModule - second pass
+2013-12-08 14:14:19,005 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] Periodic recovery - first pass <Sun, 8 Dec 2013 14:14:19>
+2013-12-08 14:14:19,005 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] StatusModule: first pass 
+2013-12-08 14:14:19,006 DEBUG [com.arjuna.ats.txoj.logging.txojLoggerI18N] [com.arjuna.ats.internal.txoj.recovery.TORecoveryModule_3] - TORecoveryModule - first pass
+2013-12-08 14:14:19,006 DEBUG [com.arjuna.ats.jta.logging.loggerI18N] [com.arjuna.ats.internal.jta.recovery.info.firstpass] Local XARecoveryModule - first pass
+2013-12-08 14:14:29,008 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] Periodic recovery - second pass <Sun, 8 Dec 2013 14:14:29>
+2013-12-08 14:14:29,008 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] AtomicActionRecoveryModule: Second pass 
+2013-12-08 14:14:29,008 DEBUG [com.arjuna.ats.txoj.logging.txojLoggerI18N] [com.arjuna.ats.internal.txoj.recovery.TORecoveryModule_6] - TORecoveryModule - second pass
+2013-12-08 14:14:29,008 DEBUG [com.arjuna.ats.jta.logging.loggerI18N] [com.arjuna.ats.internal.jta.recovery.info.secondpass] Local XARecoveryModule - second pass
+2013-12-08 14:16:29,009 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] Periodic recovery - first pass <Sun, 8 Dec 2013 14:16:29>
+2013-12-08 14:16:29,009 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] StatusModule: first pass 
+2013-12-08 14:16:29,010 DEBUG [com.arjuna.ats.txoj.logging.txojLoggerI18N] [com.arjuna.ats.internal.txoj.recovery.TORecoveryModule_3] - TORecoveryModule - first pass
+2013-12-08 14:16:29,010 DEBUG [com.arjuna.ats.jta.logging.loggerI18N] [com.arjuna.ats.internal.jta.recovery.info.firstpass] Local XARecoveryModule - first pass
+2013-12-08 14:16:39,012 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] Periodic recovery - second pass <Sun, 8 Dec 2013 14:16:39>
+2013-12-08 14:16:39,012 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] AtomicActionRecoveryModule: Second pass 
+2013-12-08 14:16:39,012 DEBUG [com.arjuna.ats.txoj.logging.txojLoggerI18N] [com.arjuna.ats.internal.txoj.recovery.TORecoveryModule_6] - TORecoveryModule - second pass
+2013-12-08 14:16:39,012 DEBUG [com.arjuna.ats.jta.logging.loggerI18N] [com.arjuna.ats.internal.jta.recovery.info.secondpass] Local XARecoveryModule - second pass
+2013-12-08 14:18:39,013 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] Periodic recovery - first pass <Sun, 8 Dec 2013 14:18:39>
+2013-12-08 14:18:39,013 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] StatusModule: first pass 
+2013-12-08 14:18:39,014 DEBUG [com.arjuna.ats.txoj.logging.txojLoggerI18N] [com.arjuna.ats.internal.txoj.recovery.TORecoveryModule_3] - TORecoveryModule - first pass
+2013-12-08 14:18:39,015 DEBUG [com.arjuna.ats.jta.logging.loggerI18N] [com.arjuna.ats.internal.jta.recovery.info.firstpass] Local XARecoveryModule - first pass
+2013-12-08 14:18:49,015 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] Periodic recovery - second pass <Sun, 8 Dec 2013 14:18:49>
+2013-12-08 14:18:49,015 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] AtomicActionRecoveryModule: Second pass 
+2013-12-08 14:18:49,015 DEBUG [com.arjuna.ats.txoj.logging.txojLoggerI18N] [com.arjuna.ats.internal.txoj.recovery.TORecoveryModule_6] - TORecoveryModule - second pass
+2013-12-08 14:18:49,015 DEBUG [com.arjuna.ats.jta.logging.loggerI18N] [com.arjuna.ats.internal.jta.recovery.info.secondpass] Local XARecoveryModule - second pass
+2013-12-08 14:20:49,015 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] Periodic recovery - first pass <Sun, 8 Dec 2013 14:20:49>
+2013-12-08 14:20:49,015 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] StatusModule: first pass 
+2013-12-08 14:20:49,016 DEBUG [com.arjuna.ats.txoj.logging.txojLoggerI18N] [com.arjuna.ats.internal.txoj.recovery.TORecoveryModule_3] - TORecoveryModule - first pass
+2013-12-08 14:20:49,017 DEBUG [com.arjuna.ats.jta.logging.loggerI18N] [com.arjuna.ats.internal.jta.recovery.info.firstpass] Local XARecoveryModule - first pass
+2013-12-08 14:20:59,018 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] Periodic recovery - second pass <Sun, 8 Dec 2013 14:20:59>
+2013-12-08 14:20:59,018 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] AtomicActionRecoveryModule: Second pass 
+2013-12-08 14:20:59,018 DEBUG [com.arjuna.ats.txoj.logging.txojLoggerI18N] [com.arjuna.ats.internal.txoj.recovery.TORecoveryModule_6] - TORecoveryModule - second pass
+2013-12-08 14:20:59,018 DEBUG [com.arjuna.ats.jta.logging.loggerI18N] [com.arjuna.ats.internal.jta.recovery.info.secondpass] Local XARecoveryModule - second pass
+2013-12-08 14:30:38,879 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] Periodic recovery - first pass <Sun, 8 Dec 2013 14:30:38>
+2013-12-08 14:30:38,879 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] StatusModule: first pass 
+2013-12-08 14:30:38,894 DEBUG [com.arjuna.ats.txoj.logging.txojLoggerI18N] [com.arjuna.ats.internal.txoj.recovery.TORecoveryModule_3] - TORecoveryModule - first pass
+2013-12-08 14:30:38,894 DEBUG [com.arjuna.ats.jta.logging.loggerI18N] [com.arjuna.ats.internal.jta.recovery.info.firstpass] Local XARecoveryModule - first pass
+2013-12-08 14:30:48,896 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] Periodic recovery - second pass <Sun, 8 Dec 2013 14:30:48>
+2013-12-08 14:30:48,896 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] AtomicActionRecoveryModule: Second pass 
+2013-12-08 14:30:48,896 DEBUG [com.arjuna.ats.txoj.logging.txojLoggerI18N] [com.arjuna.ats.internal.txoj.recovery.TORecoveryModule_6] - TORecoveryModule - second pass
+2013-12-08 14:30:48,896 DEBUG [com.arjuna.ats.jta.logging.loggerI18N] [com.arjuna.ats.internal.jta.recovery.info.secondpass] Local XARecoveryModule - second pass
+2013-12-08 14:32:48,897 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] Periodic recovery - first pass <Sun, 8 Dec 2013 14:32:48>
+2013-12-08 14:32:48,897 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] StatusModule: first pass 
+2013-12-08 14:32:48,897 DEBUG [com.arjuna.ats.txoj.logging.txojLoggerI18N] [com.arjuna.ats.internal.txoj.recovery.TORecoveryModule_3] - TORecoveryModule - first pass
+2013-12-08 14:32:48,897 DEBUG [com.arjuna.ats.jta.logging.loggerI18N] [com.arjuna.ats.internal.jta.recovery.info.firstpass] Local XARecoveryModule - first pass
+2013-12-08 14:32:58,899 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] Periodic recovery - second pass <Sun, 8 Dec 2013 14:32:58>
+2013-12-08 14:32:58,899 DEBUG [com.arjuna.ats.arjuna.logging.arjLogger] AtomicActionRecoveryModule: Second pass 
+2013-12-08 14:32:58,899 DEBUG [com.arjuna.ats.txoj.logging.txojLoggerI18N] [com.arjuna.ats.internal.txoj.recovery.TORecoveryModule_6] - TORecoveryModule - second pass
+2013-12-08 14:32:58,899 DEBUG [com.arjuna.ats.jta.logging.loggerI18N] [com.arjuna.ats.internal.jta.recovery.info.secondpass] Local XARecoveryModule - second pass

@@ -1,0 +1,21 @@
+Singleton and serialization
+
+Instance reference check->com.manju.java.serialize5.ConnectionFactory@12f68b8
+Instance reference check->com.manju.java.serialize5.ConnectionFactory@12f68b8
+=========================================================
+Object reference check->com.manju.java.serialize5.ConnectionFactory@10ab67f
+Object reference check->com.manju.java.serialize5.ConnectionFactory@536500
+
+So it has created two objects and one static reference for INSTANCE.So that means if we read the serialized format of singleton object multiple times,we will create multiple objects.This is not what singleton object is supposed to do.So can we avoid it,Yes we can.We will discuss the same in the next use case.
+
+
+Case-2: Serialization and singleton working properly
+
+In order to make serialization and singleton work properly,we have to introduce readResolve() method in the singleton class.readResolve() method lets developer control what object should be returned  on deserialization.
+For the current ConnectionFactory singleton class,readResolve() method will look like this.
+
+Instance reference check->com.manju.java.serialize5.ConnectionFactory@e89338
+Instance reference check->com.manju.java.serialize5.ConnectionFactory@e89338
+=========================================================
+Object reference check->com.manju.java.serialize5.ConnectionFactory@e89338
+Object reference check->com.manju.java.serialize5.ConnectionFactory@e89338

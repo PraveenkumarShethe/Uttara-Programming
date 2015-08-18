@@ -1,0 +1,48 @@
+1) Serialization in Java is an operation in which an object's internal state is translated into a stream of bytes.
+
+2) What is the difference between Serializable and Externalizable interface in Java?
+ 
+  This is most frequently asked question in Java serialization interview. Here is my version Externalizable provides us writeExternal() and 
+  readExternal() method which gives us flexibility to control java serialization mechanism instead of relying on Java's default serialization. 
+  Correct implementation of Externalizable interface can improve performance of application drastically.
+ 
+3) What is serialVersionUID? What would happen if you don't define this?
+
+	SerialVersionUID is an ID which is stamped on object when it get serialized usually hashcode of object, 
+	you can use tool serialver to see serialVersionUID of a serialized object . 
+	SerialVersionUID is used for version control of object. you can specify serialVersionUID in your class file also.  
+	Consequence of not specifying  serialVersionUID is that when you add or modify any field in class then already serialized class will not be able to
+   recover because serialVersionUID generated for new class and for old serialized object will be different. Java serialization process relies on 
+   correct serialVersionUID for recovering state of serialized object and throws java.io.InvalidClassException in case of serialVersionUID mismatch.
+   
+4) Can you Customize Serialization process or can you override default Serialization process in Java?
+  The answer is yes you can. We all know that for serializing an object ObjectOutputStream.writeObject (saveThisobject) is invoked and for reading
+  object ObjectInputStream.readObject() is invoked but there is one more thing which Java Virtual Machine provides you is to define these two method 
+  in your class. If you define these two methods in your class then JVM will invoke these two methods instead of applying default serialization 
+  mechanism. You can customize behavior of object serialization and deserialization here by doing any kind of pre or post processing task. 
+  Important point to note is making these methods private to avoid being inherited, overridden or overloaded. 
+  Since only Java Virtual Machine can call private method integrity of your class will remain and Java Serialization will work as normal. 
+  In my opinion this is one of the best question one can ask in any Java Serialization interview, 
+  a good follow-up question is why should you provide custom serialized form for your object?
+  
+8) Suppose super class of a new class implement Serializable interface, how can you avoid new class to being serialized?
+
+One of the tricky interview question in Serialization in Java. If Super Class of a Class already implements Serializable interface in Java then its already Serializable in Java, since you can not unimplemented an interface its not really possible to make it Non Serializable class but yes there is a way to avoid serialization of new class. To avoid java serialization you need to implement writeObject() and readObject() method in your Class and need to throw NotSerializableException from those method. This is another benefit of customizing java serialization process as described in above Serialization interview question and normally it asked as follow-up question as interview progresses.
+
+9) What are the compatible changes and incompatible changes in Java Serialization Mechanism?
+
+The real challenge lies with change in class structure by adding any field, method or removing any field or method is that with already serialized object. As per Java Serialization specification adding any field or method comes under compatible change and changing class hierarchy or UN-implementing Serializable interfaces some under non compatible changes. For complete list of compatible and non compatible changes I would advise reading Java serialization specification
+
+13) Which kind of variables is not serialized during Java Serialization?
+
+This question asked sometime differently but the purpose is same whether Java developer knows specifics about static and transient variable or not. Since static variables belong to the class and not to an object they are not the part of the state of object so they are not saved during Java Serialization process. As Java Serialization only persist state of object and not object itself. Transient variables are also not included in java serialization process and are not the part of the object’s serialized state. After this question sometime interviewer ask a follow-up if you don't store values of these variables then what would be value of these variable once you deserialize and recreate those object? This is for you guys to think about :)
+
+
+
+Read more: http://javarevisited.blogspot.com/2011/04/top-10-java-serialization-interview.html#ixzz2f8hoiZFx
+
+
+
+
+
+

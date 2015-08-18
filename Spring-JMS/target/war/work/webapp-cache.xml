@@ -1,0 +1,41 @@
+<webapp-structure>
+  <registeredFiles>
+    <entry>
+      <string>currentBuild</string>
+      <path-set>
+        <pathsSet class="linked-hash-set">
+          <string>index.jsp</string>
+          <string>WEB-INF/jms-servlet.xml</string>
+          <string>WEB-INF/mvc-dispatcher-servlet.xml</string>
+          <string>WEB-INF/Receive.html</string>
+          <string>WEB-INF/Send.html</string>
+          <string>WEB-INF/web.xml</string>
+          <string>WEB-INF/classes/com/tecnotree/jms/controller/DoAction.class</string>
+          <string>WEB-INF/classes/com/tecnotree/jms/controller/JMSController.class</string>
+          <string>WEB-INF/classes/com/tecnotree/jmstuts/JMSQueueReceiver$NoMessageThereSir.class</string>
+          <string>WEB-INF/classes/com/tecnotree/jmstuts/JMSQueueReceiver.class</string>
+          <string>WEB-INF/classes/com/tecnotree/jmstuts/JMSQueueSender$1.class</string>
+          <string>WEB-INF/classes/com/tecnotree/jmstuts/JMSQueueSender.class</string>
+          <string>WEB-INF/classes/com/tecnotree/jmstuts/MyMessageConverter.class</string>
+          <string>WEB-INF/classes/com/tecnotree/jmstuts/MyMessageListener.class</string>
+          <string>WEB-INF/classes/com/tecnotree/jmstuts/topic/MyTopicConsumer.class</string>
+          <string>WEB-INF/classes/com/tecnotree/jmstuts/topic/MyTopicProducer$1.class</string>
+          <string>WEB-INF/classes/com/tecnotree/jmstuts/topic/MyTopicProducer.class</string>
+          <string>WEB-INF/classes/log4j.properties</string>
+          <string>WEB-INF/lib/spring-2.5.6.jar</string>
+          <string>WEB-INF/lib/commons-logging-1.1.1.jar</string>
+          <string>WEB-INF/lib/spring-webmvc-2.5.6.jar</string>
+          <string>WEB-INF/lib/spring-beans-2.5.6.jar</string>
+          <string>WEB-INF/lib/spring-core-2.5.6.jar</string>
+          <string>WEB-INF/lib/spring-context-2.5.6.jar</string>
+          <string>WEB-INF/lib/aopalliance-1.0.jar</string>
+          <string>WEB-INF/lib/spring-context-support-2.5.6.jar</string>
+          <string>WEB-INF/lib/spring-web-2.5.6.jar</string>
+          <string>WEB-INF/lib/spring-jms-2.5.6.jar</string>
+          <string>WEB-INF/lib/commons-pool-1.3.jar</string>
+          <string>WEB-INF/lib/spring-tx-2.5.6.jar</string>
+        </pathsSet>
+      </path-set>
+    </entry>
+  </registeredFiles>
+</webapp-structure>

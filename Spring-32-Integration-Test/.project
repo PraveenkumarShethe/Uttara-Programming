@@ -1,0 +1,14 @@
+<projectDescription>
+  <name>spring-test-mvc-spring32</name>
+  <comment>An example application that demonstrates the integration testing of Spring MVC application
+        that uses annotation based security. NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
+  <projects/>
+  <buildSpec>
+    <buildCommand>
+      <name>org.eclipse.jdt.core.javabuilder</name>
+    </buildCommand>
+  </buildSpec>
+  <natures>
+    <nature>org.eclipse.jdt.core.javanature</nature>
+  </natures>
+</projectDescription>

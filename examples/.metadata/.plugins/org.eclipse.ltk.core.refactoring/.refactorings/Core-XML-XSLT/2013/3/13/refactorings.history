@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 2 elements(s) to &apos;Core-XML-XSLT/src/main/resources&apos;&#x0D;&#x0A;- Original project: &apos;Core-XML-XSLT&apos;&#x0D;&#x0A;- Destination element: &apos;Core-XML-XSLT/src/main/resources&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     CreateSubReq.xml&#x0D;&#x0A;     CreateSubReq.xslt" description="Copy files" destination="/src\/main\/resources" element1="src/main/resources/CreateSubReq.xml" element2="src/main/resources/CreateSubReq.xslt" files="2" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" log="src/main/resources/CreateSubReq.xml&#x09;true&#x09;true&#x09;CreateSubResp.xml&#x0A;src/main/resources/CreateSubReq.xslt&#x09;true&#x09;true&#x09;CreateSubResp.xslt" policy="org.eclipse.jdt.ui.copyResources" stamp="1364361356129" units="0" version="1.0"/>
+</session>

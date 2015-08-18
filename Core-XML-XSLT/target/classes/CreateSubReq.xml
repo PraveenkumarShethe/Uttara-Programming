@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+   <soap:Header>
+      <wsse:Security soap:mustUnderstand="0" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-23361497" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+            <wsse:Username>tecnomen</wsse:Username>
+            <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">tecnomen</wsse:Password>
+         </wsse:UsernameToken>
+      </wsse:Security>
+      <version xmlns="http://tecnomen.com/m2m">2.0.0</version>
+   </soap:Header>
+   <soap:Body>
+      <ns1:createSubscriber xmlns:ns1="http://tecnomen.com/m2m">
+         <ns1:subscriber>
+            <ns1:chargingClass>POST_PAID</ns1:chargingClass>
+            <ns1:domainName>Mobile</ns1:domainName>
+            <ns1:locale>en_GB</ns1:locale>
+            <ns1:msisdn>
+               <ns1:uri>112653</ns1:uri>
+               <ns1:type>E164</ns1:type>
+            </ns1:msisdn>
+            <ns1:password>1234</ns1:password>
+            <ns1:pin>1234</ns1:pin>
+            <ns1:timezone>Europe/Zurich</ns1:timezone>
+         </ns1:subscriber>
+      </ns1:createSubscriber>
+   </soap:Body>
+</soap:Envelope>

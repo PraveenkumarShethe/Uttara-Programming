@@ -1,0 +1,114 @@
+package com.tecnomen.httpclient;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import org.apache.commons.httpclient.HttpClient;
+import org.apache.commons.httpclient.NameValuePair;
+import org.apache.commons.httpclient.params.HttpParams;
+import org.omg.CORBA.portable.ResponseHandler;
+
+/**
+ * This example demonstrates the use of the {@link ResponseHandler} to simplify
+ * the process of processing the HTTP response and releasing associated resources.
+ */
+public class ClientWithResponseHandler {
+	
+	 Map<String, String> reqParams=new HashMap<String, String>();
+	public ClientWithResponseHandler()
+	{
+		reqParams.put("tecnomen.video", "false");
+		reqParams.put("local.uri", "tel:678");
+		reqParams.put("local.na", "4");
+		reqParams.put("local.np", "0");
+		reqParams.put("local.pi", "0");
+		reqParams.put("remote.na", "4");
+		reqParams.put("remote.np", "1");
+		reqParams.put("remote.pi", "0");
+		reqParams.put("remote.si", "3");
+		reqParams.put("remote.uri", "tel:222222");
+		reqParams.put("redirect[1].uri", "tel:411483");
+		reqParams.put("redirect[1].na", "4");
+		reqParams.put("redirect[1].np", "1");
+		reqParams.put("redirect[1].pi", "0");
+		reqParams.put("redirect[1].si", "3");
+		reqParams.put("redirect[1].qi", "0");
+		reqParams.put("redirect[1].reason", "4");
+		reqParams.put("redirectinfo.reason", "6");
+		reqParams.put("redirectinfo.indicator", "6");
+		reqParams.put("redirectinfo.count", "1");
+		reqParams.put("protocol.name", "SIP");
+		
+		
+			
+	}
+	
+	
+	public  HttpParams addHttpParams(HttpParams httpParams,Map<String, String> nameValues)
+	{
+		
+	   Set<String> keySet=nameValues.keySet();
+       for(String name:keySet)
+       {
+    	   httpParams.setParameter(name, nameValues.get(name));  
+       }
+       
+       return httpParams;
+		
+	}
+	
+	
+	public  List<NameValuePair> addHttpParams1(Map<String, String> nameValues)
+	{
+		List <NameValuePair> nvps = new ArrayList <NameValuePair>(); 
+		
+	   Set<String> keySet=nameValues.keySet();
+       for(String name:keySet)
+       {
+    	   nvps.add(new BasicNameValuePair(name, nameValues.get(name))); 
+    	     
+       }
+       
+       return nvps;
+		
+	}
+
+    public final static void main(String[] args) throws Exception {
+
+        HttpClient httpclient = new DefaultHttpClient();
+        try {
+        	ClientWithResponseHandler clHandler=new ClientWithResponseHandler();
+            HttpPost httppost = new HttpPost("http://10.50.47.33:8080/mas/login");
+            
+            httppost.setEntity(new UrlEncodedFormEntity(clHandler.addHttpParams1(clHandler.reqParams), HTTP.UTF_8)); 
+            HttpParams params=new BasicHttpParams();
+           // httppost.setParams(clHandler.addHttpParams(params,clHandler.reqParams));
+            System.out.println("executing request " + httppost.getParams());
+
+            // Create a response handler
+            ResponseHandler<String> responseHandler = new BasicResponseHandler();
+            String responseBody = httpclient.execute(httppost, responseHandler);
+            System.out.println("----------------------------------------");
+            System.out.println(responseBody);
+            System.out.println("----------------------------------------");
+            httppost = new HttpPost("http://10.50.47.33:8080/mas/logout");
+            
+            responseHandler = new BasicResponseHandler();
+             responseBody = httpclient.execute(httppost, responseHandler);
+            System.out.println("----------------LogOut------------------------");
+            System.out.println(responseBody);
+            System.out.println("----------------------------------------");
+           
+
+        } finally {
+            // When HttpClient instance is no longer needed,
+            // shut down the connection manager to ensure
+            // immediate deallocation of all system resources
+            httpclient.getConnectionManager().shutdown();
+        }
+    }
+
+}
+

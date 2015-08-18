@@ -1,0 +1,44 @@
+package com.tecnomen.httpclient;
+
+public class LoginLogOutLoadTest {
+
+	private String asvip;
+	private String sigInfoJson = "{}";
+	private int noOfcalls = 2;
+	private long timeForCalls = 1;// in seconds
+	
+	
+
+	public String getAsvip() {
+		return asvip;
+	}
+
+	public void setAsvip(String asvip) {
+		this.asvip = asvip;
+	}
+
+	public String getSigInfoJson() {
+		return sigInfoJson;
+	}
+
+	public void setSigInfoJson(String sigInfoJson) {
+		this.sigInfoJson = sigInfoJson;
+	}
+
+	public int getNoOfcalls() {
+		return noOfcalls;
+	}
+
+	public void setNoOfcalls(int noOfcalls) {
+		this.noOfcalls = noOfcalls;
+	}
+
+	public long getTimeForCalls() {
+		return timeForCalls;
+	}
+
+	public void setTimeForCalls(long timeForCalls) {
+		this.timeForCalls = timeForCalls;
+	}
+	
+}

@@ -1,0 +1,163 @@
+    Aspect: A modularization of a concern that cuts across multiple objects. Transaction management is a good example of a crosscutting concern in J2EE applications. In Spring AOP, aspects are implemented using regular classes (the schema-based approach) or regular classes annotated with the @Aspect annotation (@AspectJ style).
+
+    Join point: A point during the execution of a program, such as the execution of a method or the handling of an exception. In Spring AOP, a join point always represents a method execution. Join point information is available in advice bodies by declaring a parameter of type org.aspectj.lang.JoinPoint.
+
+    Advice: Action taken by an aspect at a particular join point. Different types of advice include "around," "before" and "after" advice. Advice types are discussed below. Many AOP frameworks, including Spring, model an advice as an interceptor, maintaining a chain of interceptors "around" the join point.
+
+    Pointcut: A predicate that matches join points. Advice is associated with a pointcut expression and runs at any join point matched by the pointcut (for example, the execution of a method with a certain name). The concept of join points as matched by pointcut expressions is central to AOP: Spring uses the AspectJ pointcut language by default.
+
+    Introduction: (Also known as an inter-type declaration). Declaring additional methods or fields on behalf of a type. Spring allows you to introduce new interfaces (and a corresponding implementation) to any proxied object. For example, you could use an introduction to make a bean implement an IsModified interface, to simplify caching.
+
+    Target object: Object being advised by one or more aspects. Also referred to as the advised object. Since Spring AOP is implemented using runtime proxies, this object will always be a proxied object.
+
+    AOP proxy: Object created by the AOP framework in order to implement the aspect contracts (advise method executions and so on). In Spring, an AOP proxy will be a JDK dynamic proxy or a CGLIB proxy. Note: proxy creation is transparent to users of the schema-based and @AspectJ styles of aspect declaration introduced in Spring 2.0
+
+    Weaving: Linking aspects with other application types or objects to create an advised object. This can be done at compile time (using the AspectJ compiler, for example), load time, or at runtime. Spring, like other pure Java AOP frameworks, performs weaving at runtime.
+    
+    
+    
+    Types of advice:
+
+    Before advice: Advice that executes before a join point, but which does not have the ability to prevent execution flow proceeding to the join point (unless it throws an exception).
+
+    After returning advice: Advice to be executed after a join point completes normally: for example, if a method returns without throwing an exception.
+
+    After throwing advice: Advice to be executed if a method exits by throwing an exception.
+
+    After (finally) advice: Advice to be executed regardless of the means by which a join point exits (normal or exceptional return).
+
+    Around advice: Advice that surrounds a join point such as a method invocation. This is the most powerful kind of advice. Around advice can perform custom behavior before and after the method invocation. 
+    	It is also responsible for choosing whether to proceed to the join point or to shortcut executing by returning its own return value or throwing an exception.
+    	
+    	
+    Spring defaults to using J2SE dynamic proxies for AOP proxies. This enables any interface or set of interfaces to be proxied.
+    Spring can also use CGLIB proxies. This is necessary to proxy classes, rather than interfaces. CGLIB is used by default if a business object doesn't implement an interface. As it's good practice to program to interfaces rather than classes, business objects normally will implement one or more business interfaces. It is possible to force the use of CGLIB, in those (hopefully rare) cases where you need to advise a method that is not declared on an interface, or 
+	where you need to pass a proxied object to a method as a concrete type.
+	
+	<aop:aspectj-autoproxy/>
+	
+	
+	################# Declaring a pointcut  ########################333
+	
+	@Pointcut("execution(* transfer(..))")// the pointcut expression
+	private void anyOldTransfer() {}// the pointcut signature
+    
+    ################# Combining PointCut #####################
+
+@Pointcut("execution(public * *(..))")
+    private void anyPublicOperation() {}
+    
+    @Pointcut("within(com.xyz.someapp.trading..*")
+    private void inTrading() {}
+    
+    @Pointcut("anyPublicOperation() && inTrading()")
+    private void tradingOperation() {}
+    
+    ####################   Sharing common pointcut definitions   ######################
+    
+    
+    package com.xyz.someapp;
+
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
+
+@Aspect
+public class SystemArchitecture {
+
+  /**
+   * A join point is in the web layer if the method is defined
+   * in a type in the com.xyz.someapp.web package or any sub-package
+   * under that.
+   */
+  @Pointcut("within(com.xyz.someapp.web..*)")
+  public void inWebLayer() {}
+
+  /**
+   * A join point is in the service layer if the method is defined
+   * in a type in the com.xyz.someapp.service package or any sub-package
+   * under that.
+   */
+  @Pointcut("within(com.xyz.someapp.service..*)")
+  public void inServiceLayer() {}
+
+  /**
+   * A join point is in the data access layer if the method is defined
+   * in a type in the com.xyz.someapp.dao package or any sub-package
+   * under that.
+   */
+  @Pointcut("within(com.xyz.someapp.dao..*)")
+  public void inDataAccessLayer() {}
+
+  /**
+   * A business service is the execution of any method defined on a service
+   * interface. This definition assumes that interfaces are placed in the
+   * "service" package, and that implementation types are in sub-packages.
+   * 
+   * If you group service interfaces by functional area (for example, 
+   * in packages com.xyz.someapp.abc.service and com.xyz.def.service) then
+   * the pointcut expression "execution(* com.xyz.someapp..service.*.*(..))"
+   * could be used instead.
+   */
+  @Pointcut("execution(* com.xyz.someapp.service.*.*(..))")
+  public void businessService() {}
+  
+  /**
+   * A data access operation is the execution of any method defined on a 
+   * dao interface. This definition assumes that interfaces are placed in the
+   * "dao" package, and that implementation types are in sub-packages.
+   
+   
+   
+   
+   */
+  @Pointcut("execution(* com.xyz.someapp.dao.*.*(..))")
+  public void dataAccessOperation() {}
+
+}
+	
+	
+	<aop:config>
+  <aop:advisor 
+      pointcut="com.xyz.someapp.SystemArchitecture.businessService()"
+      advice-ref="tx-advice"/>
+</aop:config>
+
+<tx:advice id="tx-advice">
+<tx:attributes>
+    <tx:method name="*" propagation="REQUIRED"/>
+  </tx:attributes>
+</tx:advice>
+
+
+
+<aop:config>
+
+  <aop:aspect id="myAspect" ref="aBean">
+
+    <aop:pointcut id="businessService" 
+          expression="execution(* com.xyz.myapp.service.*.*(..))"/>
+          
+    <aop:before 
+      pointcut-ref="dataAccessOperation" 
+      method="doAccessCheck"/>
+    
+  </aop:aspect>
+
+</aop:config>
+
+
+<aop:config>
+
+  <aop:aspect id="myAspect" ref="aBean">
+
+    <aop:before 
+      pointcut="execution(* com.xyz.myapp.dao.*.*(..))" 
+      method="doAccessCheck"/>
+    
+  </aop:aspect>
+
+<aop:after-returning 
+      pointcut-ref="dataAccessOperation"
+      returning="retVal" 
+      method="doAccessCheck"/>
+</aop:config>

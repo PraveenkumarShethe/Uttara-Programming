@@ -1,0 +1,6 @@
+DeQueue :  Consider now a queue like a data structure that supports insertion , deletion at both the front and rear of the queue such an extension called
+double ended queue (dequeue).
+
+
+
+

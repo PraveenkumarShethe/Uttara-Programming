@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="net.viralpatel.hibernate">
+
+    <class name="Department12M" table="DEPARTMENT12M">
+
+ 		<id name="departmentId" type="java.lang.Long" column="DEPARTMENT_ID" >
+			<generator class="native" />
+		</id>
+		
+        <property name="departmentName" column="DEPT_NAME"/>
+<!--
+“inverse”, should change to “relationship owner”?
+
+In Hibernate, only the “relationship owner” should maintain the relationship, and the “inverse” keyword is created to 
+defines which side is the owner to maintain the relationship. 
+However the “inverse” keyword itself is not verbose enough, I would suggest change the keyword to “relationship_owner“.
+In short, inverse=”true” means this is the relationship owner, and inverse=”false” (default) means it’s not.
+	
+	
+-->
+	
+		<set name="employees" table="employee12m" 
+				 inverse="true" lazy="true" fetch="join">
+            <key>
+                <column name="department_id" not-null="true" />
+            </key>
+            <one-to-many class="net.viralpatel.hibernate.Employee12M" />
+        </set>
+                
+	</class>
+</hibernate-mapping>

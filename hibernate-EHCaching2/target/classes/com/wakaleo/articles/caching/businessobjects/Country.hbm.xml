@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping package="com.wakaleo.articles.caching.businessobjects">
+    <class name="Country" table="COUNTRY" dynamic-update="true">
+		<meta attribute="implement-equals">true</meta>    
+  		<cache usage="read-only"/>
+
+        <id name="id" type="long" unsaved-value="null" >
+            <column name="cn_id" not-null="true"/>
+            <generator class="increment"/>
+        </id>
+
+	   <property column="cn_code" name="code" type="string"/>
+	   <property column="cn_name" name="name" type="string"/>
+
+	  <set name="airports" >
+		<cache usage="read-only"/>
+	    <key column="cn_id"/>
+	    <one-to-many class="Airport"/>
+	  </set>
+    </class>
+</hibernate-mapping>

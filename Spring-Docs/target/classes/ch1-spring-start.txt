@@ -1,0 +1,60 @@
+ Examples of how you, as an application developer, can use the Spring platform advantage:
+  1)  Make a Java method execute in a database transaction without having to deal with transaction APIs.
+
+  2)  Make a local Java method a remote procedure without having to deal with remote APIs.
+
+  3)  Make a local Java method a management operation without having to deal with JMX APIs.
+
+  4)  Make a local Java method a message handler without having to deal with JMS APIs.
+  
+  
+Modules : 
+
+ The Spring Framework consist of features organized into about 20 modules . These Modules are grouped into Core Container , Data Access /Integration,
+ Web , AOP ( Aspect Oriented Programming ), Instrumentation and Test
+ 
+ 1) Core Container : Beans , Core , Context , Expression Language.
+ 
+ 2) Data Access / Integration :  JDBC , OXM ,ORM ,JMS , Transactions.
+ 
+ 3) Web (MVC/ Remoting ) : Web ,Servlet , Portlet , Struts. 
+
+ 4) AOP : Aspect.
+ 
+ 5) Instrumentation :
+ 
+ 6) Test :
+ 
+ 
+ ######################### Core Container ##########################################
+ 
+ Core and Beans : modules provide fundamental features  parts of the framework , including the IoC Dependency Injection feature (BeanFactory).
+ 
+ Context :  Module builds on the solid base provided by the Core & Beans Modules : it is a means to access objects in a framework style manner that is
+ 			similar to JNDI registry. The Context Module inherits its features from the Bean module and ads support to I18n , event propagation ,
+ 			resource loading , and the transparent creation of contexts by  , for example , a servlet container , the context module also supports 
+ 			Java EE features such as EJB , JMX , and basic remoting . The ApplicationContext interface is the focal point of the Context Module.
+ 			
+ 			
+ EL : 
+ 
+ ########################## Data Integration Layer ##########################################
+ 
+ JDBC : JDBC module provides a JDBC abstraction layer that removes the need to do tedious JDBC coding and parsing of database-vendor specific error codes.
+ 
+ ORM  : module provides integration layers for popular object relational mapping API's , including JPA ,JDO ,Hibernate , and iBatis.
+ 		using the ORM package you can use all of these O/R-Mapping frameworks in combination with all of the other features Spring offers such as Simple
+ 		Declarative transaction management feature mentioned .
+ 		
+OXM : Module provides an abstraction layer that supports Object/XML mapping implementations for JAXB, Castor , XMLBeans , JiBX and XStream.
+
+JMS : Module contains features for producing and consuming messages.
+	
+Transaction : Module supports programmatic and declarative transaction management for classes .
+
+
+########################## Web ############################################################
+
+Web-Servlets , Web-Struts and Web-Porlets. 	
+ 
+ 

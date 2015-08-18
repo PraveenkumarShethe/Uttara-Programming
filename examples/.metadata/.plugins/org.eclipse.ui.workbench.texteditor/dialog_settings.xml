@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="263" key="DIALOG_WIDTH"/>
+		<item value="139" key="DIALOG_Y_ORIGIN"/>
+		<item value="380" key="DIALOG_HEIGHT"/>
+		<item value="1108" key="DIALOG_X_ORIGIN"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="true" key="wrap"/>
+		<item value="false" key="isRegEx"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="false" key="wholeword"/>
+		<item value="\&quot;" key="selection"/>
+		<list key="findhistory">
+			<item value="{&quot;local.na&quot;:&quot;4&quot;,&quot;redirect[1].uri&quot;:&quot;tel:411483&quot;,&quot;protocol.name&quot;:&quot;SIP&quot;,&quot;redirect[1].na&quot;:&quot;4&quot;,&quot;tecnomen.video&quot;:&quot;false&quot;,&quot;remote.na&quot;:&quot;4&quot;,&quot;remote.uri&quot;:&quot;tel:222222&quot;,&quot;redirect[1].np&quot;:&quot;1&quot;,&quot;remote.si&quot;:&quot;3&quot;,&quot;redirectinfo.indicator&quot;:&quot;6&quot;,&quot;redirect[1].reason&quot;:&quot;4&quot;,&quot;redirectinfo.reason&quot;:&quot;6&quot;,&quot;local.pi&quot;:&quot;0&quot;,&quot;local.np&quot;:&quot;0&quot;,&quot;remote.pi&quot;:&quot;0&quot;,&quot;redirect[1].si&quot;:&quot;3&quot;,&quot;local.uri&quot;:&quot;tel:678&quot;,&quot;remote.np&quot;:&quot;1&quot;,&quot;redirectinfo.count&quot;:&quot;1&quot;,&quot;redirect[1].qi&quot;:&quot;0&quot;,&quot;redirect[1].pi&quot;:&quot;0&quot;}"/>
+			<item value="&quot;"/>
+			<item value="redirectinfo.count"/>
+			<item value="gg"/>
+			<item value="ns1"/>
+			<item value="manju"/>
+			<item value="man"/>
+			<item value="uri"/>
+		</list>
+		<list key="replacehistory">
+			<item value="\&quot;"/>
+			<item value="ns1"/>
+			<item value="gg"/>
+			<item value="soap"/>
+			<item value=""/>
+			<item value="ROOT+&quot;"/>
+		</list>
+	</section>
+</section>

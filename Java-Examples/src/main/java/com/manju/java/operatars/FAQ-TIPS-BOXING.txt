@@ -1,0 +1,18 @@
+Since Java SE 5, there is anew kind of implicit cast, for going between Number objects, like Integer and Float, and their related base types, like int and float.
+ Anytime a Number object is expected as a parameter to a method, the'corresponding base type can be passed. 
+ 
+ In this case, Java will perform an implicit cast, called autoboxing, which will convert the base type to its corresponding Number object.
+ 
+Likewise, any time a base type is expected in an expression involving a Number reference, that Number object is changed to the corresponding base type, in an
+operation called unboxing.
+
+Incidentally, there is one situation in Java when only implicit casting is allowed,and that is in string concatenation. 
+Any time a string is concatenated with any object or base type, that object or base type is automatically converted to a string. 
+Explicit casting of an object or base type to a string is not allowed, however. 
+Thus, the following assignments are incorrect:
+
+
+
+String s (String) 4.5; II this is wrong!
+String t = IIValue = II + (String) 13; II this is wrong!
+String u 22; II this is wrong!

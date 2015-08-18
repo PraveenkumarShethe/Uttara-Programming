@@ -1,0 +1,14 @@
+1.2. Methods Parameters
+A method's parameters are defined in a comma-separated list enclosed in parentheses after the name of the method.
+
+A parameter consists of two parts, the parameter type and the parameter name. If a method has no parameters, then only an empty pair of parentheses is used.
+
+All parameters in Java are passed by value, that is, any time we pass a parameter to a method, a copy of that parameter is made for use within the method body. 
+So if we pass an int variable to a method, then that variable's integer value is copied.
+
+The method can change the copy but not the originaL If we pass an object reference as a parameter to a method, then the reference is copied as welL Remember that we
+can have many different variables that all refer to the same object Changing the internal reference inside a method will not change the reference that was passed in.
+
+For example, if we pass a Gnome reference g to a method that calls this parameter h, then this method can change the reference h to point to a different object, but
+g will still refer to the same object as before. Of course, the method can use the reference h to change the internal state of the object, and this will change g's object
+as well (since g and h are currently referring to the same object).

@@ -1,0 +1,35 @@
+<webapp-structure>
+  <registeredFiles>
+    <entry>
+      <string>currentBuild</string>
+      <path-set>
+        <pathsSet class="linked-hash-set">
+          <string>WEB-INF/mvc-dispatcher-servlet.xml</string>
+          <string>WEB-INF/pages/hello.jsp</string>
+          <string>WEB-INF/spring-security.xml</string>
+          <string>WEB-INF/web.xml</string>
+          <string>WEB-INF/classes/com/mkyong/common/controller/HelloController.class</string>
+          <string>WEB-INF/lib/spring-core-3.0.5.RELEASE.jar</string>
+          <string>WEB-INF/lib/spring-asm-3.0.5.RELEASE.jar</string>
+          <string>WEB-INF/lib/commons-logging-1.1.1.jar</string>
+          <string>WEB-INF/lib/spring-web-3.0.5.RELEASE.jar</string>
+          <string>WEB-INF/lib/aopalliance-1.0.jar</string>
+          <string>WEB-INF/lib/spring-beans-3.0.5.RELEASE.jar</string>
+          <string>WEB-INF/lib/spring-context-3.0.5.RELEASE.jar</string>
+          <string>WEB-INF/lib/spring-aop-3.0.3.RELEASE.jar</string>
+          <string>WEB-INF/lib/spring-expression-3.0.5.RELEASE.jar</string>
+          <string>WEB-INF/lib/spring-webmvc-3.0.5.RELEASE.jar</string>
+          <string>WEB-INF/lib/spring-context-support-3.0.5.RELEASE.jar</string>
+          <string>WEB-INF/lib/spring-security-core-3.0.5.RELEASE.jar</string>
+          <string>WEB-INF/lib/spring-tx-3.0.3.RELEASE.jar</string>
+          <string>WEB-INF/lib/aspectjrt-1.6.8.jar</string>
+          <string>WEB-INF/lib/aspectjweaver-1.6.8.jar</string>
+          <string>WEB-INF/lib/spring-security-web-3.0.5.RELEASE.jar</string>
+          <string>WEB-INF/lib/spring-security-config-3.0.5.RELEASE.jar</string>
+          <string>WEB-INF/lib/spring-ldap-core-1.3.1.RELEASE.jar</string>
+          <string>WEB-INF/lib/commons-lang-2.5.jar</string>
+        </pathsSet>
+      </path-set>
+    </entry>
+  </registeredFiles>
+</webapp-structure>

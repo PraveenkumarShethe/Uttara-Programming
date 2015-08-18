@@ -1,0 +1,4 @@
+1) Software Implementation Should Achieve
+ Robustness , 
+ Adaptability and 
+ Re usability.

@@ -1,0 +1,49 @@
+Spring DAO :
+
+ this module supports easy to work with data access technologies like JDBC , Hibernate , JPA  or JDO.
+ 
+ 1) Consistent exception hierarchy 
+ 
+ 2) Annotation used for configuring DAO or Repository Classes.
+   
+    @Repository : 
+    
+   
+  ############# DATA ACCESS WITH JDBC ##############################3
+  1) JdbcTemplate : 
+  2) NamedParameterJdbctemplate : 
+  3) SimpleJDBCinsert:
+  4) SimpleJdbcCall :
+  
+  Call Back Interface :
+  0) PreparedStatementSetter  (override method  public void setValues(PreparedStatement ps));
+  1) PreparedStatementCreator:
+  		public PreparedStatement createPreparedStatement(Connection con)
+            throws SQLException {
+
+        PreparedStatement ps = con.prepareStatement(prepareStmt);
+
+        return ps;
+
+    }
+  		
+  2) CallableSatementCreator:
+  3) RowCallBackHandler:
+  
+  4) RowMapper   : new RowMapper<Actor>(){
+  					public Actor mapRow(ResultSet rs , int rowNum){
+  					 Actor a=new Actor();
+  					 return a;
+  					 
+  					}
+  
+  }
+  
+  5) PreparedStatementCallBack
+   public Object doInPreparedStatement(PreparedStatement ps)
+            throws SQLException, DataAccessException {}
+            
+  6) BatchPreparedStatement  jdbcTemplate.batchUpdate(sql,thisclass).
+  
+  
+  5) SQLExceptionTransaltor

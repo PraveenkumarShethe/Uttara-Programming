@@ -1,0 +1,7 @@
+1)  To Achieve Object Oriented Goals , Designer should follow some principles.
+
+ A) Abstraction.
+ B) Encapsulation.
+ C) Modularity.
+ 
+1) Abstraction

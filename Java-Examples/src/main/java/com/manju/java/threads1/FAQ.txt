@@ -1,0 +1,91 @@
+Process : Execution Of a Program
+Thread  : Single Execution Sequence in Process ( Each process can have Multiple Thread Running Paralally)
+		  Some Times Threads called as light weight Process.
+		  
+		  Threads share a heap and have their own stack space.  This is how one thread's invocation  of method 
+		  and it's local variables are kept thread safe from the other threads.
+		  
+#################################################
+
+Creating Threads.
+
+1) extends Thread.
+2) implements Runnable.
+3) using executor framework.
+
+
+Thread States :
+
+1) Runnable : Called by start method of thread.
+	A thread become runnable when you call start but it doesn't necessarily to start immediately , it will be pooled waiting for its turn to be picked 
+	by the thread scheduler based on the priorities.
+	
+	
+2) Running : Thread in Active state .
+
+3) Waiting :
+
+4) Sleeping :
+
+5) Blocked on I/O :
+
+6) Blocked on Synchronization :
+
+7) Dead : 
+
+Yield : Changes Current thread to From Running State to Runnable State , if no other threads are in Q or no other threads priority is less than Current thread.
+
+Sleep & Wait Difference : 
+
+Call on:
+
+        wait(): Call on an object; current thread must synchronize on the lock object.
+        sleep(): Call on a Thread; always currently executing thread.
+
+Synchronized:
+
+        wait(): when synchronized multiple threads access same Object one by one.
+        sleep(): when synchronized multiple threads wait for sleep over of sleeping thread.
+
+Hold lock:
+
+        wait(): release the lock for other objects to have chance to execute.
+        sleep(): keep lock for at least t times if timeout specified or somebody interrupt.
+
+Wake-up condition:
+
+        wait(): until call notify(), notifyAll() from object
+        sleep(): until at least time expire or call interrupt().
+
+Usage:
+
+        sleep(): for time-synchronization and;
+        wait(): for multi-thread-synchronization. 
+
+
+Sleep : 
+
+1) Thread.sleap() method keeps the lock or monitor , even  if thread is waiting .
+2) sleep() is static method and it applies on current thread.
+3) sleep can be called from anywhere in the program.
+4) sleeping thread can't be wake up by using notify and notifyAll , but it can be INTERPUTED FROM ANOTHER THREAD BY CALLING thread.intrupt().
+5)Thread.sleep()  pause the execution , relinquish cpu and return to the thread scheduler (Runnable state).
+6) With Sleep in java it's not guaranteed that when sleeping thread woke up it will definitely 	get CPU , instead it will go to Runnable state and 
+	fight for CPU with other thread.
+
+
+Wait :
+
+1) wait method release the lock/monitor if thread is waiting ( moves to waiting state).
+2) Wait is called on a object, not a thread; we call this object the "lock object."
+3) wait can be called within synchronization method or block.
+4) sleep thread can be wake up by calling notify or notifyAll method from other thread or after time expire.
+5) once thread wake up this will be moved from waiting state to runnable state.
+
+
+
+no synchronized methods called by other thread even though current object locked by others thread , only we can invoke other synchronized methods,
+ if current object already locked by other thread.
+
+
+

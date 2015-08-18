@@ -1,0 +1,51 @@
+Java SE and Java EE Support
+
+The Spring Framework is now based on Java 5, and Java 6 is fully supported.
+
+Furthermore, Spring is compatible with J2EE 1.4 and Java EE 5, while at the same time introducing some early support for Java EE 6.
+
+
+This is a list of new features for Spring 3.0. We will cover these features in more detail later in this section.
+
+    Spring Expression Language
+
+    IoC enhancements/Java based bean meta data
+
+    General-purpose type conversion system and field formatting system
+
+    Object to XML mapping functionality (OXM) moved from Spring Web Services project
+
+    Comprehensive REST support
+
+    @MVC additions
+
+    Declarative model validation
+
+    Early support for Java EE 6
+
+    Embedded database support
+    
+    
+2.5.3 The Inversion of Control (IoC) container
+2.5.3.1 Java based bean metadata
+
+Some core features from the JavaConfig project have been added to the Spring Framework now. This means that the following annotations are now directly supported:
+
+    @Configuration
+
+    @Bean
+
+    @DependsOn
+
+    @Primary
+
+    @Lazy
+
+    @Import
+
+    @ImportResource
+
+    @Value
+    
+    
+  *  As of Spring 3.0 you can also use the constructor parameter name for value disambiguation:

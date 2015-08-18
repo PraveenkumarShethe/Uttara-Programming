@@ -1,0 +1,21 @@
+
+Advisor : is small self contained aspect that has a single piece of advice. the advice itself represented by a bean.
+
+
+
+<aop:config>
+
+  <aop:pointcut id="businessService"
+        expression="execution(* com.xyz.myapp.service.*.*(..))"/>
+
+  <aop:advisor 
+      pointcut-ref="businessService"
+      advice-ref="tx-advice"/>
+      
+</aop:config>
+
+<tx:advice id="tx-advice">
+  <tx:attributes>
+    <tx:method name="*" propagation="REQUIRED"/>
+  </tx:attributes>
+</tx:advice>

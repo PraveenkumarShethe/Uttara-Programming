@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dependencies>
+  <parents>
+    <parent url="file:///D:/NEED-EXAMPLES/Apache-Http-Client-Examples/pom.xml" mod="12"/>
+  </parents>
+  <doNotScan url="http://www.springframework.org/schema/beans/spring-beans-2.5.xsd" reason="java.lang.NullPointerException"/>
+  <doNotScan url="http://java.sun.com/xml/ns/j2ee/jsp_2_0.xsd" reason="java.lang.NullPointerException"/>
+  <doNotScan url="http://www.ibm.com/webservices/xsd/j2ee_web_services_client_1_1.xsd" reason="java.lang.NullPointerException"/>
+  <doNotScan url="http://www.w3.org/2001/xml.xsd" reason="java.lang.NullPointerException"/>
+  <doNotScan url="http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd" reason="java.lang.NullPointerException"/>
+  <doNotScan url="http://www.springframework.org/schema/util/spring-util-2.5.xsd" reason="java.lang.NullPointerException"/>
+  <doNotScan url="http://java.sun.com/xml/ns/j2ee/j2ee_1_4.xsd" reason="java.lang.NullPointerException"/>
+  <doNotScan url="http://maven.apache.org/maven-v4_0_0.xsd" reason="java.lang.NullPointerException"/>
+  <doNotScan url="http://www.springframework.org/schema/beans/spring-beans-3.0.xsd" reason="java.lang.NullPointerException"/>
+</dependencies>

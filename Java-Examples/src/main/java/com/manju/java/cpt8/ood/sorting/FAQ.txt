@@ -1,0 +1,3 @@
+Quick Sort :  Quicksort is a divide and conquer algorithm. In a divide and conquer sorting algorithm their the original data is separated into two parts (divide) 
+which are individually sorted (conquered) and then combined.
+ 

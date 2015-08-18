@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP-ENV:Header>
+      <ns:clusterId xmlns:ns="http://tecnotree.com/multicluster/m2m" SOAP-ENV:mustUnderstand="1">clusterB</ns:clusterId>
+   </SOAP-ENV:Header>
+   <SOAP-ENV:Body>
+      <ns1:createSubscriberResponse xmlns:ns1="http://tecnomen.com/m2m">
+         <ns1:subscriber ns1:id="200006">
+            <ns1:chargingClass>POST_PAID</ns1:chargingClass>
+            <ns1:domainId>792</ns1:domainId>
+            <ns1:domainName>Mobile</ns1:domainName>
+            <ns1:locale>en_GB</ns1:locale>
+            <ns1:msisdn ns1:id="200007">
+               <ns1:uri>tel:+41112653</ns1:uri>
+               <ns1:type>E164</ns1:type>
+            </ns1:msisdn>
+            
+            <ns1:pin>1234</ns1:pin>
+            <ns1:secondaryAddresses/>
+            <ns1:subscriptions/>
+            <ns1:timezone>Europe/Zurich</ns1:timezone>
+            <ns1:properties/>
+         </ns1:subscriber>
+      </ns1:createSubscriberResponse>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

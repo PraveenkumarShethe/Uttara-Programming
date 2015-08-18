@@ -1,0 +1,61 @@
+Collection :  Collections is nothing but Container , can hold any number of items , in java term Collection is container can hold any type/number of 
+			  objects.
+
+Collection Frame Work : Collection frame work contains 
+			Interfaces : 
+			Implementation:
+			Algorithms:
+			
+Benefits of Collection Frame Work .
+
+	1) Reduces programming effort.
+	2) Increases program speed and quality.
+	3) Allows interoperability among unrelated APIs.
+	4) Reduces effort to learn and to use new APIs.
+	5) Reduces effort to design new APIs.
+	6) Fosters software reuse.
+	
+####################### Interfaces ####################################################
+
+Two type of interface in Collection Frame work
+1) Core Collection.
+2) Map Interfaces.
+
+ ------ >  Core   Collection Interface 
+ 1) Collection Interface : 
+ 2) Set Interface : A collection that cannot contain duplicates.
+ 3) List Interface : an ordered collection . List can contain duplicate elements.
+ 4) Queue Interface : a collection used to hold multiple elements prior to processing. beside the basic Collection Operation , A queue provides additional
+ 	insertion , extraction and inspection operation.
+ 5) Dequeue Interface : a collection used to hold multiple elements prior to processing . besides the basic Collection , a queue provides additional insertion
+ 	extraction and inspection operation.
+ 	
+ Dequeue can be used both as FIFO (first-in, first-out) and LIFO (last-in, first-out). 
+ In a dequeue all new elements can be inserted, retrieved and removed at both ends
+ 
+ -------------> Map
+ Map — an object that maps keys to values. A Map cannot contain duplicate keys; each key can map to at most one value. 
+ If you've used Hashtable, you're already familiar with the basics of Map. Also see The Map Interface section.
+ 
+ 
+ ---------------> Sorted Interface
+ 
+    1) SortedSet — a Set that maintains its elements in ascending order. Several additional operations are provided to take advantage of the ordering.
+    	    Sorted sets are used for naturally ordered sets, such as word lists and membership rolls.
+    2) SortedMap — a Map that maintains its mappings in ascending key order. This is the Map analog of SortedSet. 
+    		Sorted maps are used for naturally ordered collections of key/value pairs, such as dictionaries and telephone directories. 
+    		
+    		
+  Collection Interface Array Operations.
+  Object[] a = c.toArray();
+  String[] a = c.toArray(new String[0]);
+  
+  
+  
+  
+  
+    		
+ 
+ 
+ 
+	

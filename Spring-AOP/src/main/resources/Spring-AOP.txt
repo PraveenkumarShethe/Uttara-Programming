@@ -1,0 +1,62 @@
+ Spring 2.5 in November 2007,
+ Spring 3.0 in December 2009, 
+ Spring 3.1 in December 2011. 
+ Spring 3.2.5 in November 2013
+ 
+ 
+Downloading: http://maverick.tecnomen.com:8081/artifactory/repo/org/springframework/spring-context/3.2.5.RELEASE/spring-context-3.2.5.RELEASE.pom
+Downloading: http://maverick.tecnomen.com:8081/artifactory/repo/org/springframework/spring-aop/3.2.5.RELEASE/spring-aop-3.2.5.RELEASE.pom
+Downloading: http://maverick.tecnomen.com:8081/artifactory/repo/org/springframework/spring-beans/3.2.5.RELEASE/spring-beans-3.2.5.RELEASE.pom
+Downloading: http://maverick.tecnomen.com:8081/artifactory/repo/org/springframework/spring-core/3.2.5.RELEASE/spring-core-3.2.5.RELEASE.pom
+Downloading: http://maverick.tecnomen.com:8081/artifactory/repo/org/springframework/spring-expression/3.2.5.RELEASE/spring-expression-3.2.5.RELEASE.pom
+
+Downloading: http://maverick.tecnomen.com:8081/artifactory/repo/org/springframework/spring-context/3.2.5.RELEASE/spring-context-3.2.5.RELEASE.jar
+Downloading: http://maverick.tecnomen.com:8081/artifactory/repo/org/springframework/spring-aop/3.2.5.RELEASE/spring-aop-3.2.5.RELEASE.jar
+Downloading: http://maverick.tecnomen.com:8081/artifactory/repo/org/springframework/spring-beans/3.2.5.RELEASE/spring-beans-3.2.5.RELEASE.jar
+Downloading: http://maverick.tecnomen.com:8081/artifactory/repo/org/springframework/spring-core/3.2.5.RELEASE/spring-core-3.2.5.RELEASE.jar
+Downloading: http://maverick.tecnomen.com:8081/artifactory/repo/org/springframework/spring-expression/3.2.5.RELEASE/spring-expression-3.2.5.RELEASE.jar
+
+Downloading: http://maverick.tecnomen.com:8081/artifactory/repo/org/springframework/spring-webmvc/3.2.5.RELEASE/spring-webmvc-3.2.5.RELEASE.pom
+Downloading: http://maverick.tecnomen.com:8081/artifactory/repo/org/springframework/spring-web/3.2.5.RELEASE/spring-web-3.2.5.RELEASE.pom
+
+Downloading: http://maverick.tecnomen.com:8081/artifactory/repo/org/springframework/spring-webmvc/3.2.5.RELEASE/spring-webmvc-3.2.5.RELEASE.jar
+Downloading: http://maverick.tecnomen.com:8081/artifactory/repo/org/springframework/spring-web/3.2.5.RELEASE/spring-web-3.2.5.RELEASE.jar
+
+
+Spring framework provides many modules that can be used in development of enterprise grade applications. Here is the list of Spring Modules:
+
+1)    Inversion of Control container
+2)    Aspect-oriented programming
+3)    Data access (DAO)
+4)    Transaction management
+5)    Model-view-controller (Spring MVC)
+6)    Remote Access framework
+7)    Convention-over-configuration (Spring ROO module)
+8)    Batch processing (Spring Scheduler)
+9)    Authentication and authorization (Spring Security)
+10)   Remote Management (Spring JMX)
+11)   Messaging (Spring messaging)
+12)   Testing - It provides support classes for writing and executing the test cases
+
+ 
+ mvn versions:display-plugin-updates
+ 
+
+Application logic Can be Divided in to 2 distinct Areas : 1) Core Business logic and Cross Cutting Concerns.
+
+Aspect : Aspect Defines the Implementation Of Cross Cutting Concern . Cross Cutting Functionality is nothing but utility logic that is agnostic to any
+		 specific business process and required by many parts of the application   
+	
+	There are  two ways to define Aspect in Spring 
+	1) Schema Based (Java class and Configuration in spring Configuration file)
+	2) Annotation Based : Regular Java Class with @Aspect 
+	
+An Aspect contains Advice & PointCut
+
+Join Point : The Point Of Execution of program.
+			A Specific point in a programs execution where advice is applied ,Advice Can Be Applied Before or After Join Point.
+			
+Advice : Logic that invoked at a specific point in program execution.
+
+Point Cut : A predicate that matches join point.
+

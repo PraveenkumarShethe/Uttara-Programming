@@ -1,0 +1,115 @@
+1) We can basically distinguish memory areas by below two 
+  a) memory areas that are available for all threads in a JVM.
+  b) memory areas that are exclusively accessible form  only one thread.
+  
+2) The two memory areas that are available for all threads are.
+	a) Method Area.
+	b) Heap .
+3) Method Area : Method area responsible for storing class information.
+		Class loader will loads the byte code of a class and pass it to the JVM , the JVN generates an internal class representation and will store 
+		it in Method Area.
+		
+  The Internal Representation of a class will have the following data areas.
+  
+    a) RUNTIME CONSTANT POOL : will have Numeric Constants , String Constants , Symbolic Reference to all the method, attribute and types of this class.
+    b) METHOD CODE : The implementation code of all the methods including Constructors.
+    c) ATTRIBUTES : a list of all named Attributes of this class.
+    d) FIELDS VALUES : Values of all the fields of this class as reference to the Runtime Constant Pool.
+    
+    The method area can be/can't be part of the heap and will be created at runtime. The size of the method area can be static or dynamic and it does not have to provide a Garbage Collector.
+    
+  
+ 4) Heap : the second memory area that is available for all threads inside the JVM is the Heap. The Java heap manages instances of classes (objects) and arrays at runtime. The heap will be created at JVM startup and the size can be static or dynamic. 
+ 		The JVM specification mandates a Garbage Collection mechanism for reclaiming the memory of an object on the Java heap.
+ 		
+ 		
+ In addition to the heap and method area, that are available for all threads of a JVM, every thread also has exclusive access to memory that is created for each thread:
+
+ a) PC Register The Program Counter register :The register points to the current JVM instruction of the method the thread is executing, if the method is not a native method. If it is a native method the content of the PC register is not defined.
+ b) Java Virtual Machine Stack : Each thread gets its own stack on which so called Frames are pushed for each method the thread currently executed. This means that there can be many frames on the stack for nested method calls – but there is only one frame active at the same time for one thread. The frame contains the local variables of the method, a reference to the Runtime Constant Pool of the method’s class and an operand stack for the execution of JVM operations. (The JVM is a stack machine!)
+ c) Native Method Stack : Native methods get its own stack, the so called „C-Stack“.
+ 
+ <!-- Sun HotSpot JVM and its concrete implementation of OutOfMemoryError errors -->
+ 
+ In the heap we get an OutOfMemoryError, if the garbage collector cannot reclaim enough memory for a new object. In such situation the Sun HotSpot JVM shows this error message:
+
+Exception in thread "main": java.lang.OutOfMemoryError: Java heap space
+
+A alternative for this is
+
+Exception in thread "main": java.lang.OutOfMemoryError: Requested array size exceeds VM limit
+
+if the application tries to create an array on the heap that is bigger than the total heap size.
+
+If there is not enough memory in the method area for creating a new class, the Sun HotSpot implementation gets an error in the permanent generation:
+
+Exception in thread "main": java.lang.OutOfMemoryError: PermGen space
+
+Both kinds of OutOfMemoryError occur very often in real life and the reasons for them are very different and will be covered in later blog entries.
+
+OutOfMemory errors in thread exclusive memory areas occur less frequently and are identified by the following error messages in the Sun HotSpot JVM:
+
+Exception in thread "main" java.lang.OutOfMemoryError: unable to create new native thread
+
+Exception in thread "main": java.lang.OutOfMemoryError: <reason> <stacktrace> (Native method)
+
+The first error is thrown if there are too many threads in the JVM and there is not enough memory left to create a new thread. I’ve seen this because the memory limits of a process have been reached (especially in 32bit operating systems, e.g. on Windows 32bit it is 2GB) or the maximum number of file handles for the user that executes the java process has been reached. The second error message indicates that a memory allocation error on a native stack (JNI method call) has occured.
+
+It is also interesting that a memory allocation error on the JVM stack (too many frames on the stack) does not throw an Java OutOfMemory error but as the JVM specification mandates: java.lang.StackOverflowError.
+
+The last variant of the OutOfMemoryError that I know of is
+
+Exception in thread "main": java.lang.OutOfMemoryError: request <size> bytes for <reason>. Out of swap space?
+
+This error is thrown if there is not enough memory left on the operating system level – which is normally true if other processes are using all of the available memory or the swap space is configured too small.
+
+This first blog entry of the Java OutOfMemoryError series covered the basics of the Java Memory Architecture. In my point of view it is essential to know the different memory areas of the JVM and its functions if you want to understand why a java.lang.OutOfMemoryError occured in your application. I hope that I have made clear that there can be many variations of this error with totally different possible causes. There are a lot of open questions about when and why theses errors occur and how we can monitor and analyze memory problems in our applications. This is exactly what the next episodes ot this Java OutOfMemoryError series will cover.
+ 
+<!--- GOOD FOR BASICS --->
+
+ Java has only two types of memory when it comes to jvm ,Heap Memory and Non Heap Memory.
+ 
+ Heap Memory : Class instances and arrays are stored in heap memory. Heap memory is also called as shared memory. As this is the place where multiple threads will share the same data.
+ 
+ Non Heap Memory : It Compromises of Method Area and other memory required for internal processing.
+ 		    As given in the last line, method area is part of non-heap memory. It stores per-class structures, code for methods and constructors. Per-class structure means runtime constants and static fields.
+ 		    
+ 		    
+Memory Pool:
+
+Memory pools are created by JVM memory managers during runtime. Memory pool may belong to either heap or non-heap memory.
+Ads by Google
+
+ 
+Runtime Constant Pool:
+
+A run time constant pool is a per-class or per-interface run time representation of the constant_pool table in a class file. Each runtime constant pool is allocated from the Java virtual machine’s method area.
+
+Java Stacks or Frames:
+
+Java stacks are created private to a thread. Every thread will have a program counter (PC) and a java stack. PC will use the java stack to store the intermediate values, dynamic linking, return values for methods and dispatch exceptions. This is used in the place of registers.
+
+Memory Generations:
+
+HotSpot VM’s garbage collector uses generational garbage collection. It separates the JVM’s memory into and they are called young generation and old generation.
+
+Young Generation
+
+Young generation memory consists of two parts, Eden space and survivor space. Shortlived objects will be available in Eden space. Every object starts its life from Eden space. When GC happens, if an object is still alive and it will be moved to survivor space and other dereferenced objects will be removed.
+
+Old Generation – Tenured and PermGen
+
+Old generation memory has two parts, tenured generation and permanent generation (PermGen). PermGen is a popular term. We used to error like PermGen space not sufficient.
+
+GC moves live objects from survivor space to tenured generation. The permanent generation contains meta data of the virtual machine, class and method objects.
+
+Discussion:
+
+Java specification doesn’t give hard and fast rules about the design of JVM with respect to memory. So it is completely left to the JVM implementers. The types of memory and which kind of variable / objects and where they will be stored is specific to the JVM implementation.
+
+Key Takeaways
+
+Local Variables are stored in Frames during runtime.
+Static Variables are stored in Method Area.
+Arrays are stored in heap memory. 
+ 

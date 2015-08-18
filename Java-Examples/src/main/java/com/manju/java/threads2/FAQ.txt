@@ -1,0 +1,12 @@
+join :  waits current thread/parent thread to wait until it finishes it work
+
+ Ex : t1 is main thread t2 is child thread suppose if u call t2.join() then t1 will wait till t2 completes its job and resumes it's work.
+ 		
+ 		join is no static method.
+ 		join is time based also , that means we can pass how much time threads can join ex : t2.join(ms).
+ 		
+ yield : yield is Static method in thread class .
+ 		 when we called Thread.yield() , this will move to runnable state if any other same  or high priority threads waiting for resource , 
+ 		 if no waiting thread then current thread will continue its work.
+ 		 
+ 	

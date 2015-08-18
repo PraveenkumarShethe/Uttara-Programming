@@ -1,0 +1,52 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+	<!-- <property name="host" value="smtp.gmail.com" />
+		<property name="port" value="587" />
+		<property name="username" value="manju.projects@gmail.com" />
+		<property name="password" value="sujith520" />  -->	
+		
+		<property name="host" value="smtp.gmail.com" />
+		<property name="port" value="587" />
+		<property name="username" value="manjugm@gmail.com" />
+		<property name="password" value="HOWAREYOU" />
+		
+		<property name="javaMailProperties">
+			<props>
+            	<prop key="mail.smtp.auth">true</prop>
+            	<prop key="mail.smtp.starttls.enable">true</prop>
+        	</props>
+		</property>
+		
+	</bean>
+	
+	<bean id="mailMail" class="com.mkyong.common.MailMail">
+		<property name="mailSender" ref="mailSender" />
+<!-- 	<property name="simpleMailMessage" ref="customeMailMessage" />  --> 
+	</bean>
+	
+	<bean id="customeMailMessage" class="org.springframework.mail.SimpleMailMessage">
+
+		<property name="from" value="manju.projects@gmail.com" />
+		<property name="to">
+		<list>
+		<value>manjunatha.muniyappa@tecnotree.com</value>
+		<value>manjugm@gmail.com</value>
+		</list>
+		</property>
+		 <property name="subject" value="HTML Test" />
+		<property name="text">
+		<value>
+			<![CDATA[
+				Dear %s,
+				Mail Content : %s
+			]]>
+		</value>
+	</property>
+	</bean>
+
+
+</beans>

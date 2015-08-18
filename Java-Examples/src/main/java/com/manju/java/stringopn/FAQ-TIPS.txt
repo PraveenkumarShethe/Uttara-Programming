@@ -1,0 +1,77 @@
+http://theopentutorials.com/tutorials/java/strings/string-literal-pool/
+
+
+There are slight differences between the various methods of creating a String object. String allocation, like all object allocation, proves costly in both time and memory. The JVM performs some trickery while instantiating string literals/objects to increase performance and decrease memory overhead. To cut down the number of String objects created, JVM maintains a special memory called “String literal pool” or “String constant pool”.
+
+Each time your code creates a string literal, the JVM checks the string literal pool first. If the string already exists in the pool, a reference to the pooled instance is returned. If the string does not exist in the pool, a new String object is created and placed in the pool. JVM keeps at most one object of any String in this pool. String literals always refer to an object in the string pool.
+
+For example,
+
+Direct Method of creating String object
+1
+String s1 = "iByteCode";
+How this works?
+
+JVM checks the String constant pool first and if the string does not exist, it creates a new String object “iByteCode” and a reference is maintained in the pool. The variable ‘s1′ also refers the same object.
+This statement creates one String object “iByteCode”.
+Now, let’s see what happens if we have a statement like this:
+1
+String s2 = "iByteCode";
+JVM checks the String constant pool first and since the string already exists, a reference to the pooled instance is returned to s2.
+This statement does not create any String object in the memory and ‘s2′ refers the same object as ‘s1′.
+To check this, you can compare two String references using == operator to check whether two references are referring to the same String object in the memory.
+1
+2
+3
+4
+String s1 = "iByteCode";
+String s2 = "iByteCode";
+if(s1 == s2)
+    System.out.println("s1 and s2 referring to the same object.");
+s1 and s2 referring to the same object.
+
+
+
+
+Java can make this optimization since strings are immutable and can be shared without fear of data corruption. For example, if several reference variables refer to the same String object then it would be bad if any of them changes the String’s value. This is the reason for making String objects as immutable.
+
+Creating String using constructor
+1
+String s = new String("iByteCode");
+In this case, because we used ‘new’ keyword a String object is created in the heap memory even if an equal string object already exists in the pool and ‘s’ will refer to the newly created one.
+
+1
+2
+3
+String str1 = "iByteCode";
+String str2 = new String("iByteCode");
+System.out.println(str1 == str2);
+false
+
+String objects created with the new operator do not refer to objects in the string pool but can be made to using String’s intern() method. The java.lang.String.intern() returns an interned String, that is, one that has an entry in the global String literal pool. If the String is not already in the global String literal pool, then it will be added. For example,
+
+1
+2
+3
+4
+String s1 = new String("iByteCode");
+String s2 = s1.intern();
+String s3 = "iByteCode";
+System.out.println(s2 == s3);
+true
+
+
+
+
+
+In the above example, if the change the statement 2 as,
+
+1
+String s2 = s1;
+Reference variable ‘s2′ will refer to the string object in the heap instead of string literal pool and s1 == s2 will print true.
+
+An object is eligible for garbage collection when it is no longer referenced from an active part of the application. In the case of String literals, they always have a reference to them from the String Literal Pool and are, therefore, not eligible for garbage collection.
+
+All the string literals are created and their references are placed in the pool while JVM loads the class. So, even before a statement like this String s1 = new String(“iByteCode”); is executed, the string literal pool contains a reference to “iByteCode”.
+
+String literal pool, 5.0 out of 5 based on 11 ratings

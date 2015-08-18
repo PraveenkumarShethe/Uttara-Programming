@@ -1,0 +1,102 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- http://www.mkyong.com/spring/spring-quartz-scheduler-example/ -->
+
+	<!-- http://dev.anyframejava.org/docs.en/anyframe/plugin/optional/scheduling/1.0.2/reference/html/ch02.html -->
+	<bean id="runMeTask" class="com.mkyong.common.RunMeTask" />
+
+	<!-- Spring Quartz -->
+	<bean name="runMeJob" class="org.springframework.scheduling.quartz.JobDetailBean">
+
+		<property name="jobClass" value="com.mkyong.common.RunMeJob" />
+		<property name="jobListenerNames">
+		<list>
+		  <value>dummyJobListenerName</value>
+		</list>
+		</property>
+		
+		<!-- This is to inject values to setter method -->
+		<property name="jobDataAsMap">
+			<map>
+				<entry key="runMeTask" value-ref="runMeTask" />
+			</map>
+		</property>
+
+	</bean>
+
+	<!-- <bean id="runMeJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean"> 
+		<property name="targetObject" ref="runMeTask" /> <property name="targetMethod" 
+		value="printMe" /> </bean> -->
+
+	<!-- Simple Trigger, run every 5 seconds <bean id="simpleTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean"> 
+		<property name="jobDetail" ref="runMeJob" /> <property name="repeatInterval" 
+		value="5000" /> <property name="startDelay" value="1000" /> </bean> -->
+	<!-- Cron Trigger, run every 5 seconds -->
+	<bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+
+		<property name="jobDetail" ref="runMeJob" />
+		<property name="cronExpression" value="0/1 * * * * ?" />
+	<property name="triggerListenerNames" value="Manju"></property>  
+		<property name="group" value="HK"></property>
+
+	</bean>
+
+	<!-- <bean id="globalTriggerListener" class="com.mkyong.common.GlobalTriggerListener">
+		<property name="name" value="Global" />
+	</bean> -->
+	
+	<bean id="non-globalTriggerListener" class="com.mkyong.common.GlobalTriggerListener">
+		<property name="triggerName" value="Manju" />
+	</bean>
+	
+	<!-- http://nurkiewicz.blogspot.in/2012/04/quartz-scheduler-misfire-instructions.html -->
+	
+	
+	 <bean id="triggerList" class="java.util.ArrayList">
+        <constructor-arg>
+            <list>
+                <ref bean="cronTrigger" />
+             
+            </list>
+        </constructor-arg>
+    </bean>
+
+	<bean id="manju-schedular"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+	<!-- <property name="jobDetails">
+			<list>
+				<ref bean="runMeJob" />
+			</list>
+		</property>  
+
+		<property name="triggers">
+			<list>
+				<ref bean="cronTrigger" />
+			</list>
+		</property>
+		-->	
+		 <property name="triggers">
+            <ref bean="triggerList" />
+        </property>
+		<!--  <property name="globalTriggerListeners" ref="globalTriggerListener"/>  -->
+		<property name="triggerListeners">
+		<list><ref bean="non-globalTriggerListener"/></list>
+		</property> 
+		
+	<!--  <property name="globalJobListeners" ref="localJobListener"/> -->
+	
+	<property name="jobListeners">
+		<list><ref bean="localJobListener"/></list>
+		</property>
+		
+		
+	</bean>
+	
+	<bean id="localJobListener" class="com.mkyong.common.LocalJobListener"/>
+	
+
+
+</beans>

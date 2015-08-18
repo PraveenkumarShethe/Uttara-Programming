@@ -1,0 +1,19 @@
+
+
+						(group)(?:non-capturing-group)(g(?:ro|u)p( (nested)inside)(another)group)(?=assertion)
+						|     |                       |          | |      |      ||       |     |
+						1-----1                       |          | 4------4      |5-------5     |
+						                              |          3---------------3              |
+						                              2-----------------------------------------2
+						                              
+						                              
+Capturing and grouping
+
+Capturing group (pattern) creates a group that has capturing property.
+
+A related one that you might often see (and use) is (?:pattern), which creates a group without capturing property, hence named non-capturing group.
+A group is usually used when you need to repeat a sequence of patterns, e.g. 
+(\.\w+)+, or to specify where alternation should take effect, e.g. ^(0*1|1*0)$ (^, then 0*1 or 1*0, then $) versus ^0*1|1*0$ (^0*1 or 1*0$).
+
+A capturing group, apart from grouping, will also record the text matched by the pattern inside the capturing group (pattern). 
+Using your example, (.*):, .* matches ABC and : matches :, and since .* is inside capturing group (.*), the text ABC is recorded for the capturing group 1.						                              

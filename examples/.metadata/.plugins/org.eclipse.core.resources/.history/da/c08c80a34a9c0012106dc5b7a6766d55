@@ -1,0 +1,18 @@
+package com.tecnomen.httpclient;
+
+import net.sf.json.JSONObject;
+
+public class MapToJson {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		ClientWithResponseHandler cc=new ClientWithResponseHandler()
+		 JSONObject ss=new JSONObject(cc.reqParams);
+		System.out.println(ss.toString());
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,30 @@
+##########  Object Oriented Design Goals ###############
+
+1) Robustness :
+
+2) Adaptability :
+
+3) Flexibility :
+
+4) Re usability : 
+
+
+############# Object Oriented Design Principles #############
+
+1) Abstraction :
+
+
+2) Encapsulation :
+
+3) Modularity :
+
+
+
+ ----> Abstraction : It represents essential features without including the background details or explanations .
+ 					 Abstraction tell what each operation does not how it does.
+ 					 
+ ----> Encapsulation :  is a technique used for hiding the properties and behavior of an object and allowing outside access only as appropriate and
+ 						also prevents other objects from directly altering or accessing the properties or methods of the encapsulated object.
+ 						
+ 						
+

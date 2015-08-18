@@ -1,0 +1,28 @@
+<!-- Emp.xml -->
+<ROWSET>
+  <ROW num="1">
+    <EMPNO>1483</EMPNO>
+    <ENAME>Manju</ENAME>
+	<DEPARTMENT>IVDC</DEPARTMENT>
+	<COMPANY>Farmer</COMPANY>
+	<DESIGNATION>CFO</DESIGNATION>
+   </ROW>
+   <ROW num="2">
+    <EMPNO>1484</EMPNO>
+    <ENAME>Srikanth</ENAME>
+	<DEPARTMENT>IVDC</DEPARTMENT>
+	<COMPANY>Yahoo</COMPANY>
+   </ROW>
+   <ROW num="3">
+    <EMPNO>1485</EMPNO>
+    <ENAME>Chaitu</ENAME>
+	<DEPARTMENT>IVDC</DEPARTMENT>
+	<COMPANY>Google</COMPANY>
+   </ROW>
+   <ROW num="4">
+    <EMPNO>1486</EMPNO>
+    <ENAME>Chandra</ENAME>
+	<DEPARTMENT>IVDC</DEPARTMENT>
+	<COMPANY>Tecnotree</COMPANY>
+   </ROW>
+</ROWSET>
